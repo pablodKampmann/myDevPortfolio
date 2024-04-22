@@ -38,7 +38,7 @@ export default function Page() {
                                 <div className='flex'>
                                     <div className='mr-10 ml-4 w-[30%] flex justify-center items-center flex-col'>
                                         <h1 className='text-black font-semibold  md:text-3xl  lg:text-4xl text-center'>Welcome!</h1>
-                                        <h2 className='text-black font-medium text-sm mt-2  text-center '>We're glad you're here, please complete the form </h2>
+                                        <h2 className='text-black font-medium text-sm mt-2  text-center '>We&apos;re glad you&apos;re here, please complete the form </h2>
                                         <IoIosArrowRoundForward size={50} className='text-black bg-black bg-opacity-10 mt-2 shadow-2xl rounded-full mb-4' />
                                     </div>
                                     <div className='w-full'>
@@ -106,7 +106,7 @@ export default function Page() {
                                 <div className='flex'>
                                     <div className='mr-3 w-[30%] flex justify-center items-center flex-col'>
                                         <h1 className='text-black font-semibold  text-xl text-center'>Welcome!</h1>
-                                        <h2 className='text-black font-medium text-xs mt-2  text-center '>We're glad you're here, please complete the form </h2>
+                                        <h2 className='text-black font-medium text-xs mt-2  text-center '>We&apos;re glad you&apos;re here, please complete the form </h2>
                                         <IoIosArrowRoundForward size={50} className='text-black bg-black bg-opacity-10 mt-4 shadow-2xl rounded-full mb-4' />
                                     </div>
                                     <div className='w-full'>
