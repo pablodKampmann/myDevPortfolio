@@ -31,3 +31,33 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Mobile Layout */
+.mobile-layout {
+    display: none; /* Initially hide mobile layout */
+}
+
+/* Desktop Layout */
+.desktop-layout {
+    display: none; /* Initially hide desktop layout */
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 768px) {
+    .mobile-layout {
+        display: block; /* Show mobile layout */
+    }
+    .desktop-layout {
+        display: none; /* Hide desktop layout on mobile devices */
+    }
+}
+
+/* Media Query for Desktop Devices */
+@media only screen and (min-width: 769px) {
+    .mobile-layout {
+        display: none; /* Hide mobile layout on desktop devices */
+    }
+    .desktop-layout {
+        display: block; /* Show desktop layout */
+    }
+}
