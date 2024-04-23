@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { IoGameController } from "react-icons/io5";
 import { RiSendPlane2Line } from "react-icons/ri";
 import { GiCrossedSwords } from "react-icons/gi";
@@ -11,27 +11,23 @@ export default function Page() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [formSubmit, setFormSubmit] = useState(false);
 
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setFormSubmit(false);
-        }, 6000);
-
-        return () => clearTimeout(timeoutId);
-    }, [formSubmit]);
+    function handleSubmit(event: any) {
+        event.preventDefault()
+        console.log(name);
+        console.log(email);
+        console.log(password);
+        console.log(confirmPassword);
+    }
 
     return (
-        <div >
-            <div className='desktop-layout'>
-                <div className="flex bg-[#8ebebd] bg-opacity-40 h-screen  p-4">
-                    {formSubmit && (
-                        <div className='absolute text-xs text-black'>
-                            {name} <br /> {email} <br /> {password} <br /> {confirmPassword}
-                        </div>
-                    )}
+        <div>
+
+            {/* DEKTOP */}
+            <div className='desktop-layout bg-white'>
+                <div className="flex bg-black w-full bg-opacity-90 h-screen  p-4">
                     <div className='bg-white shadow-2xl relative rounded-3xl flex mx-8 my-4'>
-                        <GiCrossedSwords size={60} className='absolute text-black left-3 top-3 hover:rotate-180 transition duration-500' />
+                        <a href="/"><GiCrossedSwords size={60} className='absolute text-black left-3 top-3 hover:rotate-180 transition duration-500' /></a>
                         <div className='flex select-none justify-center items-center  bg-opacity-20 w-1/2'>
                             {/* REGISTER */}
                             <div className='relative flex-col ml-8 w-[75%] border bg-white bg-opacity-20 px-6 py-6 rounded-lg shadow-2xl'>
@@ -39,22 +35,22 @@ export default function Page() {
                                     <div className='mr-10 ml-4 w-[30%] flex justify-center items-center flex-col'>
                                         <h1 className='text-black font-semibold  md:text-3xl  lg:text-4xl text-center'>Welcome!</h1>
                                         <h2 className='text-black font-medium text-sm mt-2  text-center '>We&apos;re glad you&apos;re here, please complete the form </h2>
-                                        <IoIosArrowRoundForward size={50} className='text-black bg-black bg-opacity-10 mt-2 shadow-2xl rounded-full mb-4' />
+                                        <IoIosArrowRoundForward size={50} className='text-black bg-black bg-opacity-10 mt-4 shadow-2xl rounded-full mb-4' />
                                     </div>
                                     <div className='w-full'>
                                         <span className="bg-[#8ebebd] hover:scale-105 transition duration-150  font-semibold tracking-wide text-xl flex justify-center items-center text-black rounded-lg w-fit px-2 py-1 shadow-lg select-none ">
-                                            Register: <IoGameController className="ml-2" size={22} />
+                                            Register <IoGameController className="ml-2" size={22} />
                                         </span>
                                         <div className="bg-black mt-4 bg-opacity-85 shadow-lg w-full p-4 rounded-lg">
-                                            <form onSubmit={(event) => { event.preventDefault(); setFormSubmit(true); }} className="flex-col select-none">
-                                                <label className="text-white-700 lg:text-sm md:text-xs font-semibold flex ml-0.5 mt-2">Full Name:</label>
-                                                <input onChange={(e) => setName(e.target.value)} className="bg-transparent flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="text" />
-                                                <label className="text-white-700 lg:text-sm md:text-xs font-semibold flex ml-0.5 mt-2">Email:</label>
-                                                <input onChange={(e) => setEmail(e.target.value)} className="bg-transparent flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="email" />
-                                                <label className="text-white-700 lg:text-sm md:text-xs font-semibold flex ml-0.5 mt-2">Password:</label>
-                                                <input onChange={(e) => setPassword(e.target.value)} className="bg-transparent flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="password" />
-                                                <label className="text-white-700 lg:text-sm md:text-xs font-semibold ml-0.5 mt-2 flex">Confirm Password:</label>
-                                                <input onChange={(e) => setConfirmPassword(e.target.value)} className="bg-transparent flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="password" />
+                                            <form onSubmit={(event) => handleSubmit(event)} className="flex-col select-none">
+                                                <label className="text-white-700 text-sm font-semibold flex ml-0.5 mt-2">Full Name:</label>
+                                                <input onChange={(e) => setName(e.target.value)} className="bg-gray-400 bg-opacity-5 flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="text" />
+                                                <label className="text-white-700 text-sm font-semibold flex ml-0.5 mt-2">Email:</label>
+                                                <input onChange={(e) => setEmail(e.target.value)} className="bg-gray-400 bg-opacity-5 flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="email" />
+                                                <label className="text-white-700 text-sm font-semibold flex ml-0.5 mt-2">Password:</label>
+                                                <input onChange={(e) => setPassword(e.target.value)} className="bg-gray-400 bg-opacity-5 flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="password" />
+                                                <label className="text-white-700 text-sm font-semibold ml-0.5 mt-2 flex">Confirm Password:</label>
+                                                <input onChange={(e) => setConfirmPassword(e.target.value)} className="bg-gray-400 bg-opacity-5 flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="password" />
                                                 <div className="flex text-xs justify-center items-center mt-4">
                                                     <div className="flex">
                                                         <input type="checkbox" className=" accent-[#a5dddc] focus:outline-none border-2 border-gray-300 rounded-md " />
@@ -81,7 +77,7 @@ export default function Page() {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex mt-2 mr-2 mb-2  justify-center  items-center   bg-gradient-to-t rounded-3xl  shadow-2xl  from-[#af685c] from-5% to-[#8ebebd] to-100% w-1/2'>
+                        <div className='flex mt-2 mr-2 mb-2  justify-center  items-center   bg-gradient-to-t rounded-3xl  shadow-2xl  from-[#cf7565] from-5% to-[#8ebebd] to-100% w-1/2'>
                             {/* RIGHT PANEL INFO */}
                             <div className='flex-col flex justify-center items-center w-[75%] rounded-xl  p-8 bg-white bg-opacity-10'>
                                 <div className='text-white font-sans  text-lg mb-2 tracking-wide uppercase select-none whitespace-nowrap'>A real game</div>
@@ -96,34 +92,36 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-            <div className='mobile-layout'>
-                <div className="flex bg-[#8ebebd] bg-opacity-40 h-full">
-                    <div className='bg-white shadow-2xl relative rounded-3xl   w-full  m-3'>
-                        <GiCrossedSwords size={60} className='absolute text-black left-3 top-3 hover:rotate-180 transition duration-500' />
+
+            {/* MOBILE */}
+            <div className='mobile-layout bg-white'>
+                <div className="flex bg-gradient-to-b from-black from-5% via-[#8ebebd] via-70% to-[#af685c] to-90% w-full h-full">
+                    <div className='bg-white shadow-2xl relative rounded-3xl  m-4 w-[94%] '>
+                        <a href="/"><GiCrossedSwords size={60} className='absolute text-black left-3 top-3 hover:rotate-180 transition duration-500' /></a>
                         <div className='flex select-none justify-center items-center bg-opacity-20 w-full'>
                             {/* REGISTER */}
-                            <div className='relative  w-full  px-3 py-6 rounded-lg '>
-                                <div className='flex'>
-                                    <div className='mr-3 w-[30%] flex justify-center items-center flex-col'>
-                                        <h1 className='text-black font-semibold  text-xl text-center'>Welcome!</h1>
+                            <div className='relative  px-3 pt-6 pb-20 rounded-lg '>
+                                <div className='flex-col'>
+                                    <div className='mr-3 mt-20 mb-4 flex justify-center items-center flex-col'>
+                                        <h1 className='text-black font-semibold  text-3xl text-center'>Welcome!</h1>
                                         <h2 className='text-black font-medium text-xs mt-2  text-center '>We&apos;re glad you&apos;re here, please complete the form </h2>
-                                        <IoIosArrowRoundForward size={50} className='text-black bg-black bg-opacity-10 mt-4 shadow-2xl rounded-full mb-4' />
+                                        <IoIosArrowRoundForward size={45} className='text-black rotate-90 bg-black bg-opacity-10  shadow-2xl rounded-full mt-2 mb-6' />
                                     </div>
-                                    <div className='w-full'>
+                                    <div className='w-[full]'>
                                         <span className="bg-[#8ebebd] hover:scale-105 transition duration-150  font-semibold tracking-wide text-2xl flex justify-center items-center text-black rounded-lg w-fit px-2 py-1 shadow-lg select-none ">
-                                            Register: <IoGameController className="ml-2" size={22} />
+                                            Register <IoGameController className="ml-2" size={22} />
                                         </span>
-                                        <div className="bg-black mt-4 bg-opacity-85 shadow-lg w-full p-6 rounded-lg">
-                                            <form onSubmit={(event) => { event.preventDefault(); setFormSubmit(true); }} className="flex-col select-none">
-                                                <label className="text-white-700 lg:text-sm md:text-xs font-semibold flex ml-0.5 mt-2">Full Name:</label>
-                                                <input onChange={(e) => setName(e.target.value)} className="bg-transparent flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="text" />
-                                                <label className="text-white-700 lg:text-sm md:text-xs font-semibold flex ml-0.5 mt-2">Email:</label>
-                                                <input onChange={(e) => setEmail(e.target.value)} className="bg-transparent flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="email" />
-                                                <label className="text-white-700 lg:text-sm md:text-xs font-semibold flex ml-0.5 mt-2">Password:</label>
-                                                <input onChange={(e) => setPassword(e.target.value)} className="bg-transparent flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="password" />
-                                                <label className="text-white-700 lg:text-sm md:text-xs font-semibold ml-0.5 mt-2 flex">Confirm Password:</label>
-                                                <input onChange={(e) => setConfirmPassword(e.target.value)} className="bg-transparent flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="password" />
-                                                <div className="flex text-xs justify-center items-center mt-4">
+                                        <div className="bg-black mt-4 bg-opacity-85 shadow-lg w-full p-3 pb-6 rounded-lg">
+                                            <form onSubmit={(event) => handleSubmit(event)} className="flex-col select-none">
+                                                <label className="text-white-700 text-sm font-semibold flex ml-0.5 mt-2">Full Name:</label>
+                                                <input onChange={(e) => setName(e.target.value)} className="bg-gray-400 bg-opacity-5 flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="text" />
+                                                <label className="text-white-700 text-sm font-semibold flex ml-0.5 mt-2">Email:</label>
+                                                <input onChange={(e) => setEmail(e.target.value)} className="bg-gray-400 bg-opacity-5 flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="email" />
+                                                <label className="text-white-700 text-sm font-semibold flex ml-0.5 mt-2">Password:</label>
+                                                <input onChange={(e) => setPassword(e.target.value)} className="bg-gray-400 bg-opacity-5 flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="password" />
+                                                <label className="text-white-700 text-sm font-semibold ml-0.5 mt-2 flex">Confirm Password:</label>
+                                                <input onChange={(e) => setConfirmPassword(e.target.value)} className="bg-gray-400 bg-opacity-5 flex rounded-lg cursor-pointer hover:bg-[#8ebebd] hover:bg-opacity-20 w-full  focus:bg-opacity-20 focus:bg-[#8ebebd]  focus:outline-none focus:border-t-[#8ebebd] focus:border-l-[#8ebebd]  focus:border-r-[#8ebebd] border-2 border-t-transparent border-r-transparent border-l-transparent  transition duration-300 ease-in-out  border-[#8ebebd] text-white px-1 py-2 text-sm" type="password" />
+                                                <div className="flex text-xs justify-center items-center mt-8">
                                                     <div className="flex">
                                                         <input type="checkbox" className=" accent-[#a5dddc] focus:outline-none border-2 border-gray-300 rounded-md " />
                                                         <p className="ml-1 text-gray-300">Keep me signed in</p>
@@ -149,9 +147,12 @@ export default function Page() {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex w-full mr-2  justify-center  items-center   bg-gradient-to-t rounded-3xl  shadow-2xl  from-[#af685c] from-5% to-[#8ebebd] to-100%'>
-                            {/* RIGHT PANEL INFO */}
-                            <div className='flex-col flex justify-center items-center w-[85%] my-8 rounded-xl  p-8 bg-white bg-opacity-10'>
+                        <div className='rounded-full mx-32 mb-2 h-1 bg-black bg-opacity-15 flex justify-center items-center'></div>
+                        <div className='rounded-full mx-24 mb-2 h-1 bg-black bg-opacity-15 flex justify-center items-center'></div>
+                        <div className='rounded-full mx-16 h-1 bg-black bg-opacity-15 flex justify-center items-center'></div>
+                        <div className='flex w-full mr-2 mt-4 justify-center  items-center   bg-gradient-to-t rounded-t-3xl rounded-b-xl  shadow-2xl  from-[#af685c] from-5% to-[#8ebebd] to-100%'>
+                            {/* BUTTOM PANEL INFO */}
+                            <div className='flex-col flex justify-center items-center w-[85%]  rounded-xl  p-8 my-20 bg-white bg-opacity-10'>
                                 <div className='text-white font-sans  text-lg mb-2 tracking-wide uppercase select-none whitespace-nowrap'>A real game</div>
                                 <div className='text-white font-sans font-bold text-3xl mb-4 tracking-wide uppercase select-none whitespace-nowrap'>Age of Empires</div>
                                 <div className="bg-white rounded-3xl w-24 h-2"></div>
@@ -163,6 +164,7 @@ export default function Page() {
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }
