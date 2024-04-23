@@ -23,7 +23,7 @@ export default function Page() {
 
             {/* DEKTOP */}
             <div className='desktop-layout bg-white'>
-                <div className="flex bg-black bg-opacity-90 h-screen  p-4">
+                <div className="flex bg-black bg-opacity-15 h-screen  p-4">
                     <div className='bg-white shadow-2xl relative rounded-3xl flex mx-8 my-4'>
                         <a href="/"><GiCrossedSwords size={60} className='absolute text-black left-3 top-3 hover:rotate-180 transition duration-500' /></a>
                         <div className='flex select-none justify-center items-center  bg-opacity-20 w-1/2'>
