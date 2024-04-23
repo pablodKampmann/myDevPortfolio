@@ -95,10 +95,10 @@ export default function Page() {
                             {/* SIGN IN */}
                             <div className='relative px-8 w-full  pt-6 pb-20 rounded-lg '>
                                 <div className='flex-col'>
-                                    <div className='mr-3 mt-14 flex justify-center items-center flex-col'>
+                                    <div className='mr-3 mt-20 flex justify-center items-center flex-col'>
                                         <h1 className='text-black font-semibold  text-3xl text-center'>Hello again!</h1>
                                         <h2 className='text-black font-medium text-xs mt-2  text-center '>Welcome back my friend, please complete the form </h2>
-                                        <IoIosArrowRoundForward size={45} className='text-black rotate-90 bg-black bg-opacity-10  shadow-2xl rounded-full mt-2 mb-6' />
+                                        <IoIosArrowRoundForward size={45} className='text-black rotate-90 bg-black bg-opacity-10  shadow-2xl rounded-full mt-2 mb-8' />
                                     </div>
                                     <div className='w-full'>
                                         <span className="bg-[#8ebebd] hover:scale-105 transition duration-150  font-semibold tracking-wide text-2xl flex justify-center items-center text-black rounded-lg w-fit px-2 py-1 shadow-lg select-none ">
