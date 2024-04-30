@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-export default function AboutMe() {
+export default function Work() {
   const [language, setLanguage] = useState(() => {
     if (typeof window !== 'undefined') {
       const storedLanguage = localStorage.getItem('language');
@@ -58,7 +58,7 @@ export default function AboutMe() {
 
   return (
     <div className='text-white flex flex-col justify-center items-center h-full pb-[6%]'>
-
+      
     </div>
   );
 }

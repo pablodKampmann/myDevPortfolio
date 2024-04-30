@@ -4,7 +4,7 @@ import { Inconsolata } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navBar";
 import LanguageOptions from "./components/languageOptions";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ToneMode from "./components/toneMode";
 
 const inter = Inconsolata({ subsets: ["latin"] });
@@ -15,7 +15,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const [language, setLanguage] = useState('eng');
+  const [language, setLanguage] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const storedLanguage = localStorage.getItem('language');
+      return storedLanguage || 'eng';
+    } else {
+      return 'eng';
+    }
+  });
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) {
+      setLanguage(storedLanguage);
+    }
+  }, []);
+
+  const handleLanguageChange = (newLanguage: string) => {
+    setLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage);
+    window.dispatchEvent(new Event("storage"));
+  };
 
   return (
     <html lang="en">
@@ -27,9 +47,8 @@ export default function RootLayout({
           <div className="absolute right-9 bottom-[50%] rounded-full bg-emerald-600 h-16 w-1 "></div>
           <div className="absolute -right-5 bottom-[68%] font-semibold text-emerald-400 transform rotate-90">@pablokampmann</div>
           <div className="absolute right-9 bottom-[80%] rounded-full bg-emerald-600 h-8 w-1 "></div>
-
-          <ToneMode/>
-          <LanguageOptions language={language} setLanguage={setLanguage} />
+          <ToneMode />
+          <LanguageOptions language={language} handleLanguageChange={handleLanguageChange} />
           <NavBar language={language} />
           {children}
         </div>

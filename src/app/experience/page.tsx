@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-export default function AboutMe() {
+export default function Experience() {
   const [language, setLanguage] = useState(() => {
     if (typeof window !== 'undefined') {
       const storedLanguage = localStorage.getItem('language');
