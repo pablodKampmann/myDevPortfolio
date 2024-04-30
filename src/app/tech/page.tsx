@@ -8,14 +8,16 @@ import { TbArrowWaveRightUp } from "react-icons/tb";
 export default function Tech() {
     const [option, setOption] = useState('languages');
     const [category, setCategory] = useState('primary');
+
+    //LANGUAGE
     const [language, setLanguage] = useState(() => {
         if (typeof window !== 'undefined') {
-          const storedLanguage = localStorage.getItem('language');
-          return storedLanguage || 'eng';
+            const storedLanguage = localStorage.getItem('language');
+            return storedLanguage || 'eng';
         } else {
-          return 'eng';
+            return 'eng';
         }
-      });
+    });
 
     useEffect(() => {
         const handleLanguageChange = () => {
@@ -61,8 +63,41 @@ export default function Tech() {
         texts = languageTexts.spa;
     }
 
+    //TONE
+    const [tone, setTone] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const storedTone = localStorage.getItem('tone');
+            return storedTone || 'dark';
+        } else {
+            return 'dark';
+        }
+    });
+
+    useEffect(() => {
+        const handleToneChange = () => {
+            const storedTone = localStorage.getItem('tone');
+            if (storedTone) {
+                setTone(storedTone);
+            }
+        };
+
+        window.addEventListener('storage', handleToneChange);
+
+        return () => {
+            window.removeEventListener('storage', handleToneChange);
+        };
+    }, []);
+
+    let textColorClass = "";
+
+    if (tone === "dark") {
+        textColorClass = "text-white";
+    } else if (tone === "light") {
+        textColorClass = "text-black";
+    }
+
     return (
-        <div className='text-white flex flex-col justify-center items-center h-full pb-[6%]'>
+        <div className={`${textColorClass} flex flex-col justify-center items-center h-full pb-[6%]`}>
             <h1 className="text-4xl bg-emerald-600 px-4 bg-opacity-20 py-4 flex justify-center items-center rounded-md">{texts?.technologies} <GrTechnology size={32} className="ml-4 bg-white bg-opacity-90 p-1 rounded-full text-emerald-700" /></h1>
             <h1 className="text-base text-center mt-4 w-[50%]">{texts?.info}</h1>
             <TbArrowWaveRightUp size={50} className="text-emerald-600 opacity-20 mt-6 mb-6 rotate-90" />

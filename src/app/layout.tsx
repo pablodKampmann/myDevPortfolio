@@ -15,6 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+  //LANGUAGE
+
   const [language, setLanguage] = useState(() => {
     if (typeof window !== 'undefined') {
       const storedLanguage = localStorage.getItem('language');
@@ -37,19 +39,55 @@ export default function RootLayout({
     window.dispatchEvent(new Event("storage"));
   };
 
+  //TONE
+
+  const [tone, setTone] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const storedTone = localStorage.getItem('tone');
+      return storedTone || 'dark';
+    } else {
+      return 'dark';
+    }
+  });
+
+  useEffect(() => {
+    const storedTone = localStorage.getItem('tone');
+    if (storedTone) {
+      setTone(storedTone);
+    }
+  }, []);
+
+  const handleToneChange = (newTone: string) => {
+    setTone(newTone);
+    localStorage.setItem('tone', newTone);
+    window.dispatchEvent(new Event("storage"));
+  };
+
+  //TONE
+  let bgMainColor = "";
+  let bgMainOpacity = "";
+
+  if (tone === "dark") {
+    bgMainColor = "bg-blue-950";
+    bgMainOpacity = "bg-opacity-20";
+  } else if (tone === "light") {
+    bgMainColor = "bg-zinc-100		";
+    bgMainOpacity = "bg-opacity-90";
+  }
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="h-screen overflow-y-hidden relative bg-blue-950 bg-opacity-20">
+        <div className={`h-screen overflow-y-hidden relative ${bgMainColor} transition duration-200 ${bgMainOpacity}`}>
           <div className="absolute left-9 bottom-[18%] rounded-full bg-emerald-600 h-40 w-1 "></div>
           <div className="absolute left-9 bottom-[46%] rounded-full bg-emerald-600 h-4 w-1 "></div>
           <div className="absolute left-9 bottom-[54%] rounded-full bg-emerald-600 h-16 w-1 "></div>
           <div className="absolute right-9 bottom-[50%] rounded-full bg-emerald-600 h-16 w-1 "></div>
           <div className="absolute -right-5 bottom-[68%] font-semibold text-emerald-400 transform rotate-90">@pablokampmann</div>
           <div className="absolute right-9 bottom-[80%] rounded-full bg-emerald-600 h-8 w-1 "></div>
-          <ToneMode />
-          <LanguageOptions language={language} handleLanguageChange={handleLanguageChange} />
-          <NavBar language={language} />
+          <ToneMode tone={tone} handleToneChange={handleToneChange} />
+          <LanguageOptions tone={tone} language={language} handleLanguageChange={handleLanguageChange} />
+          <NavBar tone={tone} language={language} />
           {children}
         </div>
       </body>

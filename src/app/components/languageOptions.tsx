@@ -2,15 +2,25 @@ import { MdLanguage } from "react-icons/md";
 import React, { useState } from 'react';
 
 interface LanguageOptionsProps {
+    tone: string;
     language: string;
     handleLanguageChange: (language: string) => void;
 }
 
-export default function LanguageOptions({ language, handleLanguageChange  }: LanguageOptionsProps) {
+export default function LanguageOptions({ tone, language, handleLanguageChange }: LanguageOptionsProps) {
     const [open, setOpen] = useState(false);
 
+    //TONE
+    let bgColorClass = "";
+
+    if (tone === "dark") {
+        bgColorClass = "bg-blue-950";
+    } else if (tone === "light") {
+        bgColorClass = "bg-blue-100";
+    }
+
     return (
-        <div onClick={() => setOpen(!open)} className={`${open ? 'bg-blue-950 bg-opacity-20' : 'bg-gray-100 bg-opacity-15 hover:bg-opacity-25  rounded-full p-1'} absolute transition duration-200 bottom-3 right-3 z-10`}>
+        <div onClick={() => setOpen(!open)} className={`${open ? `${bgColorClass} bg-opacity-20` : 'bg-gray-100 bg-opacity-15 hover:bg-opacity-25  rounded-full p-1'} absolute transition duration-200 bottom-3 right-3 z-10`}>
             <div className={`${open ? 'border-2 py-4 px-4' : 'cursor-pointer'} flex flex-col relative  border-emerald-600  rounded-lg  justify-center items-center`}>
                 {open && (
                     <div className="absolute cursor-pointer text-2xl -top-1 right-2">x</div>
