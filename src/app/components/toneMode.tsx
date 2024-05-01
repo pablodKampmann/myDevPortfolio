@@ -5,12 +5,21 @@ interface ToneOptionsProps {
 }
 
 export default function ToneMode({ tone, handleToneChange }: ToneOptionsProps) {
+
+    function handleClick() {
+        if (tone === 'dark') {
+            handleToneChange('light');
+        } else if (tone === 'light') {
+            handleToneChange('dark');
+        }
+    }
+
     return (
-        <div className="absolute bottom-4 bg-emerald-600 hover:bg-emerald-500 transition duration-150 cursor-pointer p-2 rounded-full left-4">
+        <div onClick={handleClick} className="absolute bottom-4 bg-emerald-600 hover:bg-emerald-500 transition duration-150 cursor-pointer p-2 rounded-full left-4">
             {tone === 'dark' ? (
-                <MdDarkMode onClick={() => handleToneChange('light')} size={30} className="text-black" />
+                <MdDarkMode size={30} className="text-black" />
             ) : (
-                <MdOutlineDarkMode onClick={() => handleToneChange('dark')} size={30} className="text-white" />
+                <MdOutlineDarkMode size={30} className="text-white" />
             )}
         </div>
     );

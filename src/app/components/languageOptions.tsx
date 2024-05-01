@@ -11,28 +11,32 @@ export default function LanguageOptions({ tone, language, handleLanguageChange }
     const [open, setOpen] = useState(false);
 
     //TONE
-    let bgColor = "";
-    let bgOpacity = "";
-    let textColor = "";
-    let bgIconColor = "";
-    let bgIconOpacity = "";
+    const classesTones = {
+        dark: {
+            bgColor: "bg-blue-950",
+            bgOpacity: "bg-opacity-20",
+            textColor: "text-white",
+            bgIconColor: "bg-gray-100",
+            bgIconOpacity: "bg-opacity-15",
+        },
+        light: {
+            bgColor: "bg-white",
+            bgOpacity: "bg-opacity-100",
+            textColor: "text-black",
+            bgIconColor: "bg-white",
+            bgIconOpacity: "bg-opacity-90",
+        }
+    }
 
+    let classes;
     if (tone === "dark") {
-        bgColor = "bg-blue-950";
-        bgOpacity = "bg-opacity-20";
-        textColor = "text-white";
-        bgIconColor = "bg-gray-100";
-        bgIconOpacity = "bg-opacity-15";
+        classes = classesTones.dark;
     } else if (tone === "light") {
-        bgColor = "bg-white";
-        bgOpacity = "bg-opacity-100";
-        textColor = "text-black";
-        bgIconColor = "bg-white";
-        bgIconOpacity = "bg-opacity-90"
+        classes = classesTones.light;
     }
 
     return (
-        <div onClick={() => setOpen(!open)} className={`${open ? `${bgColor} ${bgOpacity} rounded-lg` : `${bgIconColor} ${bgIconOpacity} hover:bg-opacity-25  rounded-full p-1`} absolute ${textColor}  transition duration-200 bottom-3 right-3 z-10`}>
+        <div onClick={() => setOpen(!open)} className={`${open ? `${classes?.bgColor} ${classes?.bgOpacity} rounded-lg` : `${classes?.bgIconColor} ${classes?.bgIconOpacity} hover:bg-opacity-25  rounded-full p-1`} absolute ${classes?.textColor}  transition duration-200 bottom-3 right-3 z-10`}>
             <div className={`${open ? 'border-2 py-4 px-4' : 'cursor-pointer'} flex flex-col relative  border-emerald-600  rounded-lg  justify-center items-center`}>
                 {open && (
                     <div className="absolute cursor-pointer text-2xl -top-1 right-2">x</div>

@@ -88,46 +88,49 @@ export default function Tech() {
         };
     }, []);
 
-    let textColorClass = "";
-    let borderImagesColor = "";
-    let hoverOpacityButtons = "";
-    let hoverColorButtons = "";
-    let textColorCategory = "";
-    let bgColorImages = "";
+    const classesTones = {
+        dark: {
+            textColorClass: "text-white",
+            borderImagesColor: 'border-gray-900',
+            hoverOpacityButtons: 'hover:bg-opacity-10',
+            hoverColorButtons: 'hover:bg-white',
+            textColorCategory: 'text-emerald-400',
+            bgColorImages: 'bg-blue-950',
+        },
+        light: {
+            textColorClass: "text-black",
+            borderImagesColor: 'border-gray-400',
+            hoverOpacityButtons: 'hover:bg-opacity-20',
+            hoverColorButtons: 'hover:bg-gray-400',
+            textColorCategory: 'text-emerald-600',
+            bgColorImages: 'bg-white',
+        }
+    }
 
+    let classes;
     if (tone === "dark") {
-        textColorClass = "text-white";
-        borderImagesColor = 'border-gray-900'
-        hoverOpacityButtons = 'hover:bg-opacity-10'
-        hoverColorButtons = 'hover:bg-white'
-        textColorCategory = 'text-emerald-400'
-        bgColorImages = 'bg-blue-950'
+        classes = classesTones.dark;
     } else if (tone === "light") {
-        textColorClass = "text-black";
-        borderImagesColor = 'border-gray-400'
-        hoverOpacityButtons = 'hover:bg-opacity-20'
-        hoverColorButtons = 'hover:bg-gray-400'
-        textColorCategory = 'text-emerald-600'
-        bgColorImages = 'bg-white'
+        classes = classesTones.light;
     }
 
     return (
-        <div className={`${textColorClass} flex flex-col justify-center items-center h-full pb-[6%]`}>
+        <div className={`${classes?.textColorClass} flex flex-col justify-center items-center h-full pb-[6%]`}>
             <h1 className="text-4xl bg-emerald-600 px-4 bg-opacity-20 py-4 flex justify-center items-center rounded-md">{texts?.technologies} <GrTechnology size={32} className="ml-4 bg-white bg-opacity-90 p-1 rounded-full text-emerald-700" /></h1>
             <h1 className="text-base text-center mt-4 w-[50%]">{texts?.info}</h1>
             <TbArrowWaveRightUp size={50} className="text-emerald-600 opacity-20 mt-6 mb-6 rotate-90" />
             <div className="flex justify-center space-x-4 items-center">
-                <div onClick={() => setOption('languages')} className={`${option === 'languages' ? 'bg-emerald-600' : `${hoverColorButtons} ${hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_1}</div>
-                <div onClick={() => setOption('frameworks')} className={`${option === 'frameworks' ? 'bg-emerald-600' : `${hoverColorButtons} ${hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_2}</div>
-                <div onClick={() => setOption('backEnd')} className={`${option === 'backEnd' ? 'bg-emerald-600' : `${hoverColorButtons} ${hoverOpacityButtons}`} transition duration-200  rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_3}</div>
+                <div onClick={() => setOption('languages')} className={`${option === 'languages' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_1}</div>
+                <div onClick={() => setOption('frameworks')} className={`${option === 'frameworks' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_2}</div>
+                <div onClick={() => setOption('backEnd')} className={`${option === 'backEnd' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200  rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_3}</div>
             </div>
-            <div className={`${bgColorImages} bg-opacity-10  flex relative transition-[width] duration-1000 border-4 rounded-lg shadow-2xl ${borderImagesColor} px-6 py-6 mt-2 justify-center items-center`}>
+            <div className={`${classes?.bgColorImages} bg-opacity-10  flex relative transition-[width] duration-1000 border-4 rounded-lg shadow-2xl ${classes?.borderImagesColor} px-6 py-6 mt-2 justify-center items-center`}>
                 <div className="absolute space-x-2 flex text-sm justify-center items-center top-0.5 left-2">
-                    <div onClick={() => setCategory('primary')} className={`${category === 'primary' ? `${textColorCategory} underline` : `${textColorClass}`}}  cursor-pointer mr-2`}>
+                    <div onClick={() => setCategory('primary')} className={`${category === 'primary' ? `${classes?.textColorCategory} underline` : `${classes?.textColorClass}`}}  cursor-pointer mr-2`}>
                         {texts?.category_1}
                     </div>
                     /
-                    <div onClick={() => setCategory('secondary')} className={`${category === 'secondary' ? `${textColorCategory} underline` : `${textColorClass}`}   cursor-pointer`}>
+                    <div onClick={() => setCategory('secondary')} className={`${category === 'secondary' ? `${classes?.textColorCategory} underline` : `${classes?.textColorClass}`}   cursor-pointer`}>
                         {texts?.category_2}
                     </div>
                 </div>
