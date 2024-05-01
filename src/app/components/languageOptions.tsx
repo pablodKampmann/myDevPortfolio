@@ -11,16 +11,28 @@ export default function LanguageOptions({ tone, language, handleLanguageChange }
     const [open, setOpen] = useState(false);
 
     //TONE
-    let bgColorClass = "";
+    let bgColor = "";
+    let bgOpacity = "";
+    let textColor = "";
+    let bgIconColor = "";
+    let bgIconOpacity = "";
 
     if (tone === "dark") {
-        bgColorClass = "bg-blue-950";
+        bgColor = "bg-blue-950";
+        bgOpacity = "bg-opacity-20";
+        textColor = "text-white";
+        bgIconColor = "bg-gray-100";
+        bgIconOpacity = "bg-opacity-15";
     } else if (tone === "light") {
-        bgColorClass = "bg-blue-100";
+        bgColor = "bg-white";
+        bgOpacity = "bg-opacity-100";
+        textColor = "text-black";
+        bgIconColor = "bg-white";
+        bgIconOpacity = "bg-opacity-90"
     }
 
     return (
-        <div onClick={() => setOpen(!open)} className={`${open ? `${bgColorClass} bg-opacity-20` : 'bg-gray-100 bg-opacity-15 hover:bg-opacity-25  rounded-full p-1'} absolute transition duration-200 bottom-3 right-3 z-10`}>
+        <div onClick={() => setOpen(!open)} className={`${open ? `${bgColor} ${bgOpacity} rounded-lg` : `${bgIconColor} ${bgIconOpacity} hover:bg-opacity-25  rounded-full p-1`} absolute ${textColor}  transition duration-200 bottom-3 right-3 z-10`}>
             <div className={`${open ? 'border-2 py-4 px-4' : 'cursor-pointer'} flex flex-col relative  border-emerald-600  rounded-lg  justify-center items-center`}>
                 {open && (
                     <div className="absolute cursor-pointer text-2xl -top-1 right-2">x</div>

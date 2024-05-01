@@ -89,11 +89,26 @@ export default function Tech() {
     }, []);
 
     let textColorClass = "";
+    let borderImagesColor = "";
+    let hoverOpacityButtons = "";
+    let hoverColorButtons = "";
+    let textColorCategory = "";
+    let bgColorImages = "";
 
     if (tone === "dark") {
         textColorClass = "text-white";
+        borderImagesColor = 'border-gray-900'
+        hoverOpacityButtons = 'hover:bg-opacity-10'
+        hoverColorButtons = 'hover:bg-white'
+        textColorCategory = 'text-emerald-400'
+        bgColorImages = 'bg-blue-950'
     } else if (tone === "light") {
         textColorClass = "text-black";
+        borderImagesColor = 'border-gray-400'
+        hoverOpacityButtons = 'hover:bg-opacity-20'
+        hoverColorButtons = 'hover:bg-gray-400'
+        textColorCategory = 'text-emerald-600'
+        bgColorImages = 'bg-white'
     }
 
     return (
@@ -102,17 +117,17 @@ export default function Tech() {
             <h1 className="text-base text-center mt-4 w-[50%]">{texts?.info}</h1>
             <TbArrowWaveRightUp size={50} className="text-emerald-600 opacity-20 mt-6 mb-6 rotate-90" />
             <div className="flex justify-center space-x-4 items-center">
-                <div onClick={() => setOption('languages')} className={`${option === 'languages' ? 'bg-emerald-600' : 'hover:bg-white hover:bg-opacity-10'} rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_1}</div>
-                <div onClick={() => setOption('frameworks')} className={`${option === 'frameworks' ? 'bg-emerald-600' : 'hover:bg-white hover:bg-opacity-10'} rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_2}</div>
-                <div onClick={() => setOption('backEnd')} className={`${option === 'backEnd' ? 'bg-emerald-600' : 'hover:bg-white hover:bg-opacity-10'} rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_3}</div>
+                <div onClick={() => setOption('languages')} className={`${option === 'languages' ? 'bg-emerald-600' : `${hoverColorButtons} ${hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_1}</div>
+                <div onClick={() => setOption('frameworks')} className={`${option === 'frameworks' ? 'bg-emerald-600' : `${hoverColorButtons} ${hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_2}</div>
+                <div onClick={() => setOption('backEnd')} className={`${option === 'backEnd' ? 'bg-emerald-600' : `${hoverColorButtons} ${hoverOpacityButtons}`} transition duration-200  rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_3}</div>
             </div>
-            <div className="flex relative  border-4 rounded-lg border-gray-900 px-6 py-6 mt-2 justify-center items-center">
-                <div className="absolute space-x-2 flex text-xs justify-center items-center top-0.5 left-2">
-                    <div onClick={() => setCategory('primary')} className={`${category === 'primary' ? 'text-emerald-400 underline' : 'text-white'}  cursor-pointer mr-2`}>
+            <div className={`${bgColorImages} bg-opacity-10  flex relative transition-[width] duration-1000 border-4 rounded-lg shadow-2xl ${borderImagesColor} px-6 py-6 mt-2 justify-center items-center`}>
+                <div className="absolute space-x-2 flex text-sm justify-center items-center top-0.5 left-2">
+                    <div onClick={() => setCategory('primary')} className={`${category === 'primary' ? `${textColorCategory} underline` : `${textColorClass}`}}  cursor-pointer mr-2`}>
                         {texts?.category_1}
                     </div>
                     /
-                    <div onClick={() => setCategory('secondary')} className={`${category === 'secondary' ? 'text-emerald-400 underline' : 'text-white'}   cursor-pointer`}>
+                    <div onClick={() => setCategory('secondary')} className={`${category === 'secondary' ? `${textColorCategory} underline` : `${textColorClass}`}   cursor-pointer`}>
                         {texts?.category_2}
                     </div>
                 </div>

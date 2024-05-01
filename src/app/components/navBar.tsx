@@ -41,24 +41,30 @@ export default function NavBar({ tone, language }: NavBarProps) {
     let textMain = "";
     let bgOpacityButtons = "";
     let bgHoverButtons = "";
+    let borderColor = "";
+    let textIcon = "";
 
     if (tone === "dark") {
         bgMain = "bg-blue-950";
         bgMainOpacity = "bg-opacity-20";
         textMain = "text-white";
         bgOpacityButtons = "bg-opacity-40";
-        bgHoverButtons = "bg-emerald-900";
+        bgHoverButtons = "bg-emerald-800";
+        borderColor = 'border-emerald-700'
+        textIcon = 'text-emerald-600'
     } else if (tone === "light") {
         bgMain = "bg-white";
         bgMainOpacity = "bg-opacity-100";
         textMain = "text-black";
         bgOpacityButtons = "bg-opacity-20";
         bgHoverButtons = "bg-emerald-700";
+        borderColor = 'border-emerald-500'
+        textIcon = 'text-emerald-500'
     }
 
     return (
-        <div className={`w-full flex justify-between items-center ${bgMain} border-b-2 border-emerald-700 transition duration-200 ${bgMainOpacity} h-[10%] `}>
-            <SiVorondesign size={40} className="text-emerald-600 animate-[spin_5s_ease-in-out_infinite] ml-4 flex justify-start items-center" />
+        <div className={`w-full flex justify-between items-center ${bgMain} border-b-2 ${borderColor} transition duration-200 ${bgMainOpacity} h-[10%] `}>
+            <SiVorondesign size={40} className={`${textIcon} animate-[spin_5s_ease-in-out_infinite] ml-4 flex justify-start items-center`} />
             <div className={`${textMain} flex space-x-4  justify-end items-center mr-4`}>
                 <Link href={'/'} prefetch={true}>
                     <div className={`${pathname === '/' ? `bg-emerald-900  ${bgOpacityButtons} ` : `hover:${bgHoverButtons}`} cursor-pointer  py-2 px-3 rounded-xl transition duration-150  w-full whitespace-nowrap`}><span className="text-emerald-500">01. </span>{texts?.about}</div>
