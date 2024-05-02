@@ -9,6 +9,26 @@ export default function Tech() {
     const [option, setOption] = useState('languages');
     const [category, setCategory] = useState('primary');
 
+    //LISTENER DEL LOCALSTORAGE
+    useEffect(() => {
+        const handleItemChange = () => {
+            const storedLanguage = localStorage.getItem('language');
+            if (storedLanguage) {
+                setLanguage(storedLanguage);
+            }
+            const storedTone = localStorage.getItem('tone');
+            if (storedTone) {
+                setTone(storedTone);
+            }
+        };
+
+        window.addEventListener('storage', handleItemChange);
+
+        return () => {
+            window.removeEventListener('storage', handleItemChange);
+        };
+    }, []);
+
     //LANGUAGE
     const [language, setLanguage] = useState(() => {
         if (typeof window !== 'undefined') {
@@ -18,21 +38,6 @@ export default function Tech() {
             return 'eng';
         }
     });
-
-    useEffect(() => {
-        const handleLanguageChange = () => {
-            const storedLanguage = localStorage.getItem('language');
-            if (storedLanguage) {
-                setLanguage(storedLanguage);
-            }
-        };
-
-        window.addEventListener('storage', handleLanguageChange);
-
-        return () => {
-            window.removeEventListener('storage', handleLanguageChange);
-        };
-    }, []);
 
     const languageTexts = {
         eng: {
@@ -72,21 +77,6 @@ export default function Tech() {
             return 'dark';
         }
     });
-
-    useEffect(() => {
-        const handleToneChange = () => {
-            const storedTone = localStorage.getItem('tone');
-            if (storedTone) {
-                setTone(storedTone);
-            }
-        };
-
-        window.addEventListener('storage', handleToneChange);
-
-        return () => {
-            window.removeEventListener('storage', handleToneChange);
-        };
-    }, []);
 
     const classesTones = {
         dark: {
