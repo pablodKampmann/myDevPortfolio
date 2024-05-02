@@ -8,7 +8,6 @@ import { TbArrowWaveRightUp } from "react-icons/tb";
 export default function Tech() {
     const [option, setOption] = useState('languages');
     const [category, setCategory] = useState('primary');
-    const [loadingImages, setLoadingImages] = useState(true);
 
     //LANGUAGE
     const [language, setLanguage] = useState(() => {
@@ -127,7 +126,7 @@ export default function Tech() {
                 <div onClick={() => setOption('frontend')} className={`${option === 'frontend' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_2}</div>
                 <div onClick={() => setOption('backend')} className={`${option === 'backend' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200  rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_3}</div>
             </div>
-            <div className={`${classes?.bgColorImages} ${classes?.bgOpacityImages} select-none transition-width ease-in-out duration-300 ${option === 'languages' && category !== 'secondary' && 'w-[720px]'} ${option === 'languages' && category === 'secondary' && 'w-[450px]'} ${option === 'frontend' && 'w-[450px]'} ${option === 'backend' && 'w-[720px]'} flex relative border-4 rounded-lg shadow-2xl ${classes?.borderImagesColor} px-6 py-6 mt-2 justify-center items-center`}>
+            <div className={`${option === 'languages' && category !== 'secondary' && 'w-[840px]'} ${option === 'languages' && category === 'secondary' && 'w-[450px]'} ${option === 'frontend' && 'w-[450px]'} ${option === 'backend' && 'w-[720px]'} ${classes?.bgColorImages} ${classes?.bgOpacityImages} select-none transition-width ease-in-out duration-300  flex relative border-4 rounded-lg shadow-2xl ${classes?.borderImagesColor} px-6 py-6 mt-2 justify-center items-center`}>
                 {option === 'languages' && (
                     <div>
                         <div className="absolute space-x-2 flex text-sm justify-center items-center top-0.5 left-2">
@@ -146,6 +145,7 @@ export default function Tech() {
                                 <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='typescript-icon.svg' alt="typescript-icon" />
                                 <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='css-icon.svg' alt="css-icon" />
                                 <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='javascript-icon.svg' alt="javascript-icon" />
+                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='git-icon.svg' alt="git-icon" />
                             </div>
                         )}
                         {category === 'secondary' && (
