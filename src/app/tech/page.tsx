@@ -108,7 +108,7 @@ export default function Tech() {
 
     return (
         <div className={`${classes?.textColorClass} flex flex-col justify-center items-center h-full pb-[6%]`}>
-            <h1 className="text-4xl bg-emerald-600 px-4 bg-opacity-20 py-4 flex justify-center items-center rounded-md">{texts?.technologies} <GrTechnology size={32} className="ml-4 bg-white bg-opacity-90 p-1 rounded-full text-emerald-700" /></h1>
+            <h1 className="text-4xl bg-emerald-600 px-4 bg-opacity-30 py-4 flex justify-center items-center rounded-md">{texts?.technologies} <GrTechnology size={32} className="ml-4 bg-white bg-opacity-90 p-1 rounded-full text-emerald-700" /></h1>
             <h1 className="text-base text-center mt-4 w-[50%]">{texts?.info}</h1>
             <TbArrowWaveRightUp size={50} className="text-emerald-600 opacity-20 mt-6 mb-6 rotate-90" />
             <div className="flex justify-center select-none space-x-4 items-center">

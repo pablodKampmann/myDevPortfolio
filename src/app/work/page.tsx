@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { MdDesignServices } from "react-icons/md";
 
 export default function Work() {
 
@@ -77,32 +78,56 @@ export default function Work() {
     classes = classesTones.light;
   }
 
+  //HOVER IMAGES
+  const [firstImageHover, setFirstImageHover] = useState(false);
+
+  function handleHoverFirstImage() {
+    // setFirstImageHover(true);
+
+  }
+
+
+
   return (
     <div className='text-white flex justify-center items-center h-full pb-[4%]'>
-      <div className='flex h-[84%] border-4 relative border-gray-900 bg-blue-950 bg-opacity-20 rounded-lg w-[60%] p-8 shadow-2xl text-lg justify-center items-center flex-col'>
-        <div className=' overflow-y-auto'>
-          <div className='absolute -rotate-90 -left-[215px] px-16 py-1.5 bg-emerald-600 bg-opacity-20 font-medium border-gray-900 border-4 text-4xl rounded-t-lg ' >Mis Proyectos</div>
-          <div className='flex justify-center items-center'>
-            <div className='font-bold'>
-              Dental Agenda App
-              <p className='w-full text-sm transition-all transform duration-300 text-balance font-normal text-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend placerat suscipit. Sed viverra ante porttitor mi viverra aliquet. Aliquam id dapibus est. Ut posuere tincidunt eros, ut pharetra tortor porta a. Sed at turpis cursus, tempus magna eu, fermentum sapien. Integer dictum.</p>
-            </div>
-            <Image className="rounded-lg hover:scale-125 cursor-pointer ml-8 hover:mr-8 trasform transitiond duration-300 w-[400px] h-[200px]" quality={100} width={1920} height={900} priority={true} src='/adminPanel-image.png' alt="adminPanel-image" />
+      <div className='flex  h-[84%] border-4 relative border-gray-900 bg-blue-950 bg-opacity-20 rounded-lg w-[65%]  shadow-2xl text-lg justify-center items-center '>
+        <div className='overflow-y-auto bg-transparent  overflow-x-hidden flex flex-col h-full '>
+          <div className='bg-emerald-600 bg-opacity-30 flex  items-center text-left pl-4 text-xl  rounded-tl  py-2 p '>
+            Proyectos <MdDesignServices className='ml-2' />
           </div>
-          <div className='flex justify-center mt-16 items-center'>
-            <div className='font-bold'>
-              Dental Agenda App
-              <p className='w-full text-sm transition-all transform duration-300 text-balance font-normal text-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend placerat suscipit. Sed viverra ante porttitor mi viverra aliquet. Aliquam id dapibus est. Ut posuere tincidunt eros, ut pharetra tortor porta a. Sed at turpis cursus, tempus magna eu, fermentum sapien. Integer dictum.</p>
+
+          <div className=''>
+            <div className='flex group hover:bg-opacity-10 hover:bg-blue-950 transition duration-500 justify-center hover:py-10 border-transparent hover:border-b-2 hover:border-t-2 hover:border-white hover:border-opacity-5  p-8 items-center'>
+              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
+                My RoomMate App <span className='text-emerald-900'>(Mobile)</span>
+                <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id dapibus est. Ut posuere tincidunt eros, ut pharetra tortor porta a. Sed at turpis cursus, tempus magna eu, fermentum sapien. Integer dictum.</p>
+                <p onClick={() => window.open("https://dental-agenda.vercel.app/", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-300 mt-4'>https://dental-agenda.vercel.app/</p>
+                <p onClick={() => window.open("https://github.com/pablodKampmann/dental-agenda", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-300 mt-4'>https://github.com/pablodKampmann/dental-agenda</p>
+              </div>
+              <Image className="rounded-lg object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-500 w-[60%] h-[250px]" quality={100} width={1920} height={1080} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
             </div>
-            <Image className="rounded-lg hover:scale-125 cursor-pointer ml-8 hover:mr-8 trasform transitiond duration-300 w-[400px] h-[200px]" quality={100} width={1920} height={900} priority={true} src='/adminPanel-image.png' alt="adminPanel-image" />
-          </div>
-          <div className='flex justify-center mt-16 items-center'>
-            <div className='font-bold'>
-              Dental Agenda App
-              <p className='w-full text-sm transition-all transform duration-300 text-balance font-normal text-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend placerat suscipit. Sed viverra ante porttitor mi viverra aliquet. Aliquam id dapibus est. Ut posuere tincidunt eros, ut pharetra tortor porta a. Sed at turpis cursus, tempus magna eu, fermentum sapien. Integer dictum.</p>
+
+            <div className='flex group hover:bg-opacity-10 hover:bg-blue-950 transition duration-500 justify-center hover:py-10 border-transparent hover:border-b-2 hover:border-t-2 hover:border-white hover:border-opacity-5  p-8 items-center'>
+              <Image className="rounded-lg object-cover group-hover:h-[360px] group-hover:w-[60%] mr-20 trasform transition-all duration-500 w-[60%] h-[250px]" quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
+              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
+                My RoomMate App <span className='text-emerald-900'>(Mobile)</span>
+                <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id dapibus est. Ut posuere tincidunt eros, ut pharetra tortor porta a. Sed at turpis cursus, tempus magna eu, fermentum sapien. Integer dictum.</p>
+                <p onClick={() => window.open("https://dental-agenda.vercel.app/", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-300 mt-4'>https://dental-agenda.vercel.app/</p>
+                <p onClick={() => window.open("https://github.com/pablodKampmann/dental-agenda", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-300 mt-4'>https://github.com/pablodKampmann/dental-agenda</p>
+              </div>
             </div>
-            <Image className="rounded-lg hover:scale-125 cursor-pointer ml-8 hover:mr-8 trasform transitiond duration-300 w-[400px] h-[200px]" quality={100} width={1920} height={900} priority={true} src='/adminPanel-image.png' alt="adminPanel-image" />
+
+            <div className='flex group hover:bg-opacity-10 hover:bg-blue-950 transition duration-500 justify-center hover:py-10 border-transparent hover:border-b-2 hover:border-t-2 hover:border-white hover:border-opacity-5  p-8 items-center'>
+              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
+                Dental Agenda App
+                <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend placerat suscipit. Sed viverra ante porttitor mi viverra aliquet. Aliquam id dapibus est. Ut posuere tincidunt eros, ut pharetra tortor porta a. Sed at turpis cursus, tempus magna eu, fermentum sapien. Integer dictum.</p>
+                <p onClick={() => window.open("https://dental-agenda.vercel.app/", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-300 mt-4'>https://dental-agenda.vercel.app/</p>
+                <p onClick={() => window.open("https://github.com/pablodKampmann/dental-agenda", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-300 mt-4'>https://github.com/pablodKampmann/dental-agenda</p>
+              </div>
+              <Image className="rounded-lg group-hover:h-[300px] group-hover:w-[70%] ml-8 trasform transition-all duration-500 w-[60%] h-[230px]" quality={100} width={1920} height={920} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenga-image" />
+            </div>
           </div>
+
         </div>
       </div>
     </div>

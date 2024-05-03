@@ -32,6 +32,32 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06c286;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Mobile Layout */
 .mobile-layout {
     display: none; /* Initially hide mobile layout */
