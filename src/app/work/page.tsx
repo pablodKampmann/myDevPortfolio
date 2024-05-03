@@ -134,9 +134,9 @@ export default function Work() {
           <div className=''>
 
             <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-500 justify-center hover:py-10 border-transparent hover:border-b-2  ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 items-center`}>
-              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-200'>
+              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
                 My RoomMate App <span className='text-emerald-800'>({texts?.category_1})</span>
-                <p className='w-full text-sm transition-all transform duration-200 text-balance font-normal text-left'>{texts?.info_1}</p>
+                <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>{texts?.info_1}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
                   <p onClick={() => window.open("https://dental-agenda.vercel.app/", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://dental-agenda.vercel.app/</p>
@@ -151,7 +151,7 @@ export default function Work() {
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg group-hover:opacity-100 shadow-2xl object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-200 w-[60%] h-[250px]`} quality={100} width={1919} height={917} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg group-hover:opacity-100 shadow-2xl object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-500 w-[60%] h-[250px]`} quality={100} width={1919} height={917} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
               )}
             </div>
 
@@ -161,11 +161,11 @@ export default function Work() {
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[330px] group-hover:w-[65%] mr-12 trasform transition-all duration-200 w-[60%] h-[280px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[330px] group-hover:w-[65%] mr-12 trasform transition-all duration-500 w-[60%] h-[280px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
               )}
-              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-200'>
+              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
                 My RoomMate App <br /> <span className='text-emerald-800'>({texts?.category_1} & {texts?.category_2})</span>
-                <p className='w-full text-sm transition-all transform duration-200 text-balance font-normal text-left'>{texts?.info_2}</p>
+                <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>{texts?.info_2}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
                   <p onClick={() => window.open("https://myroommate.vercel.app/", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://myroommate.vercel.app/</p>
@@ -178,9 +178,9 @@ export default function Work() {
             </div>
 
             <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-500 justify-center hover:py-10 border-transparent  hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 items-center`}>
-              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-200'>
+              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
                 Login & Register Template <br /><span className='text-emerald-800'>({texts?.category_1} & {texts?.category_2})</span>
-                <p className='w-full text-sm transition-all transform duration-200 text-balance font-normal text-left'>{texts?.info_3}</p>
+                <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>{texts?.info_3}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
                   <p onClick={() => window.open("https://login-register-template.vercel.app/login", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://login-register-template.vercel.app/login</p>
@@ -195,7 +195,7 @@ export default function Work() {
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-200 w-[60%] h-[250px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-500 w-[60%] h-[250px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
               )}
             </div>
 
