@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { MdDesignServices } from "react-icons/md";
 import { GrDeploy } from "react-icons/gr";
 import { FaGithub } from "react-icons/fa";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function Work() {
 
@@ -87,6 +88,7 @@ export default function Work() {
       bgOpacityTitle: "bg-opacity-40",
       bgOpacityLinks: "bg-opacity-10",
       opacityImages: "opacity-50",
+      bgOpacityLoaderImage: "bg-opacity-10",
     },
     light: {
       textColorMain: "text-black",
@@ -100,6 +102,7 @@ export default function Work() {
       bgOpacityTitle: "bg-opacity-80",
       bgOpacityLinks: "bg-opacity-100",
       opacityImages: "opacity-70",
+      bgOpacityLoaderImage: "bg-opacity-100",
     }
   }
 
@@ -109,6 +112,17 @@ export default function Work() {
   } else if (tone === "light") {
     classes = classesTones.light;
   }
+
+  //IMAGES HANDLER LOADING
+  const [imageIsLoad, setImageIsLoad] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setImageIsLoad(true);
+    }, 200);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <div className={`${classes?.textColorMain} flex justify-center items-center h-full pb-[4%]`}>
@@ -132,11 +146,23 @@ export default function Work() {
                   <p onClick={() => window.open("https://github.com/pablodKampmann/dental-agenda", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/dental-agenda</p>
                 </div>
               </div>
-              <Image className={`${classes?.opacityImages} rounded-lg group-hover:opacity-100 shadow-2xl object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-200 w-[60%] h-[250px]`} quality={100} width={1919} height={917} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
+              {!imageIsLoad ? (
+                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[250px] ml-10 rounded-lg shadow-2xl`}>
+                  <ClipLoader color='#10b981' size={50} />
+                </div>
+              ) : (
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg group-hover:opacity-100 shadow-2xl object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-200 w-[60%] h-[250px]`} quality={100} width={1919} height={917} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
+              )}
             </div>
 
             <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-500 justify-center hover:py-10 border-transparent hover:border-b-2 hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 items-center`}>
-              <Image className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[330px] group-hover:w-[65%] mr-12 trasform transition-all duration-200 w-[60%] h-[280px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
+              {!imageIsLoad ? (
+                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[280px] mr-12 rounded-lg shadow-2xl`}>
+                  <ClipLoader color='#10b981' size={50} />
+                </div>
+              ) : (
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[330px] group-hover:w-[65%] mr-12 trasform transition-all duration-200 w-[60%] h-[280px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
+              )}
               <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-200'>
                 My RoomMate App <br /> <span className='text-emerald-800'>({texts?.category_1} & {texts?.category_2})</span>
                 <p className='w-full text-sm transition-all transform duration-200 text-balance font-normal text-left'>{texts?.info_2}</p>
@@ -164,7 +190,13 @@ export default function Work() {
                   <p onClick={() => window.open("https://github.com/pablodKampmann/login-register-template", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/login-register-template</p>
                 </div>
               </div>
-              <Image className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-200 w-[60%] h-[250px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
+              {!imageIsLoad ? (
+                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[250px] ml-10 rounded-lg shadow-2xl`}>
+                  <ClipLoader color='#10b981' size={50} />
+                </div>
+              ) : (
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-200 w-[60%] h-[250px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
+              )}
             </div>
 
           </div>
