@@ -119,7 +119,7 @@ export default function Work() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setImageIsLoad(true);
-    }, 200);
+    }, 500);
 
     return () => clearTimeout(timeoutId);
   }, []);
