@@ -30,14 +30,14 @@ export default function Tech() {
     }, []);
 
     //LANGUAGE
-    const [language, setLanguage] = useState(() => {
-        if (typeof window !== 'undefined') {
-            const storedLanguage = localStorage.getItem('language');
-            return storedLanguage || 'eng';
-        } else {
-            return 'eng';
+    const [language, setLanguage] = useState<string>('eng')
+
+    useEffect(() => {
+        const storedLanguage = localStorage.getItem('language');
+        if (storedLanguage) {
+            setLanguage(storedLanguage);
         }
-    });
+    }, []);
 
     const languageTexts = {
         eng: {
@@ -69,14 +69,14 @@ export default function Tech() {
     }
 
     //TONE
-    const [tone, setTone] = useState(() => {
-        if (typeof window !== 'undefined') {
-            const storedTone = localStorage.getItem('tone');
-            return storedTone || 'dark';
-        } else {
-            return 'dark';
+    const [tone, setTone] = useState<string>('dark')
+
+    useEffect(() => {
+        const storedTone = localStorage.getItem('tone');
+        if (storedTone) {
+            setTone(storedTone);
         }
-    });
+    }, []);
 
     const classesTones = {
         dark: {

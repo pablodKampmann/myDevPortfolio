@@ -32,6 +32,7 @@ body {
   }
 }
 
+/* Estilo básico de la barra de desplazamiento */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -47,16 +48,23 @@ body {
   border-radius: 5px;
 }
 
+/* Cambiar el color del pulgar al pasar el mouse */
 ::-webkit-scrollbar-thumb:hover {
   background: #06a875;
 }
 
-
+/* Quitar los botones de incremento y decremento de los input tipo número */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* Agregar animación a la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  transition: background-color 5s ease-in-out;
+}
+
 
 /* Mobile Layout */
 .mobile-layout {

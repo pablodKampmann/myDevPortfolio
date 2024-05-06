@@ -30,14 +30,14 @@ export default function Work() {
   }, []);
 
   //LANGUAGE
-  const [language, setLanguage] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const storedLanguage = localStorage.getItem('language');
-      return storedLanguage || 'eng';
-    } else {
-      return 'eng';
+  const [language, setLanguage] = useState<string>('eng')
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) {
+      setLanguage(storedLanguage);
     }
-  });
+  }, []);
 
   const languageTexts = {
     eng: {
@@ -66,14 +66,14 @@ export default function Work() {
   }
 
   //TONE
-  const [tone, setTone] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const storedTone = localStorage.getItem('tone');
-      return storedTone || 'dark';
-    } else {
-      return 'dark';
+  const [tone, setTone] = useState<string>('dark')
+
+  useEffect(() => {
+    const storedTone = localStorage.getItem('tone');
+    if (storedTone) {
+      setTone(storedTone);
     }
-  });
+  }, []);
 
   const classesTones = {
     dark: {
@@ -132,62 +132,67 @@ export default function Work() {
             {texts?.title} <MdDesignServices className='ml-2' />
           </div>
           <div className=''>
-
-            <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-500 justify-center hover:py-10 border-transparent hover:border-b-2  ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 items-center`}>
-              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
+              
+            <div className={`flex relative group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-100 justify-center hover:py-10 border-transparent hover:border-b-2  ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject} px-8  h-[40%] hover:h-[45%] transition-all transform duration-500 items-center`}>
+              <div className='font-bold group-hover:w-[25%] w-[40%] transition-all  duration-300 transform'>
                 My RoomMate App <span className='text-emerald-800'>({texts?.category_1})</span>
-                <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>{texts?.info_1}</p>
+                <p className='w-full text-sm  text-balance font-normal text-left'>{texts?.info_1}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
-                  <p onClick={() => window.open("https://dental-agenda.vercel.app/", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://dental-agenda.vercel.app/</p>
+                  <p onClick={() => window.open("https://dental-agenda.vercel.app/", "_blank")} className=' text-[10px] cursor-pointer tracking-tighter	 text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://dental-agenda.vercel.app/</p>
                 </div>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center'>Repo <FaGithub className='ml-2' /></h2>
-                  <p onClick={() => window.open("https://github.com/pablodKampmann/dental-agenda", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/dental-agenda</p>
+                  <p onClick={() => window.open("https://github.com/pablodKampmann/dental-agenda", "_blank")} className='text-[10px] tracking-tighter	 cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/dental-agenda</p>
                 </div>
               </div>
               {!imageIsLoad ? (
-                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[250px] ml-10 rounded-lg shadow-2xl`}>
+                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[250px] ml-auto rounded-lg shadow-2xl`}>
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg group-hover:opacity-100 shadow-2xl object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-500 w-[60%] h-[250px]`} quality={100} width={1919} height={917} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} ml-auto rounded-lg group-hover:opacity-100 shadow-2xl object-cover group-hover:h-[310px] group-hover:w-[70%]  trasform transition-all duration-[1000ms] w-[60%] h-[260px]`} quality={100} width={1919} height={917} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
               )}
             </div>
 
-            <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-500 justify-center hover:py-10 border-transparent hover:border-b-2 hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 items-center`}>
+            <div className='bg-tramparent w-full h-[70px]'></div>
+
+            <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition  duration-100 justify-center hover:py-10 border-transparent hover:border-b-2 hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject} px-8  h-[40%] hover:h-[45%] transition-all transform duration-500  items-center`}>
               {!imageIsLoad ? (
-                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[280px] mr-12 rounded-lg shadow-2xl`}>
+                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[280px] mr-auto rounded-lg shadow-2xl`}>
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[330px] group-hover:w-[65%] mr-12 trasform transition-all duration-500 w-[60%] h-[280px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[350px] group-hover:w-[70%] mr-auto trasform transition-all duration-[1000ms] w-[60%] h-[310px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
               )}
-              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
+              <div className='font-bold group-hover:w-[25%] w-[35%] ml-6 transition-all  duration-300 transform'>
                 My RoomMate App <br /> <span className='text-emerald-800'>({texts?.category_1} & {texts?.category_2})</span>
                 <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>{texts?.info_2}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
-                  <p onClick={() => window.open("https://myroommate.vercel.app/", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://myroommate.vercel.app/</p>
+                  <p onClick={() => window.open("https://myroommate.vercel.app/", "_blank")} className='text-xs cursor-pointer tracking-tighter	 text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://myroommate.vercel.app/</p>
                 </div>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center'>Repo <FaGithub className='ml-2' /></h2>
-                  <p onClick={() => window.open("https://github.com/pablodKampmann/myRoomMate-Copy", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/myRoomMate-Copy</p>
+                  <p onClick={() => window.open("https://github.com/pablodKampmann/myRoomMate-Copy", "_blank")} className='text-xs tracking-tighter	 cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/myRoomMate-Copy</p>
                 </div>
               </div>
             </div>
 
-            <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-500 justify-center hover:py-10 border-transparent  hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 items-center`}>
-              <div className='font-bold group-hover:w-[30%] w-[40%] transition-all duration-500'>
+            <div className='bg-tramparent w-full h-[70px]'></div>
+
+
+            <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition  duration-500 justify-center hover:py-10 border-transparent  hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  px-8  h-[40%] hover:h-[45%] transition-all transform duration-500 items-center`}>
+              <div className='font-bold group-hover:w-[25%] w-[40%] transition-all  duration-300'>
                 Login & Register Template <br /><span className='text-emerald-800'>({texts?.category_1} & {texts?.category_2})</span>
                 <p className='w-full text-sm transition-all transform duration-500 text-balance font-normal text-left'>{texts?.info_3}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
-                  <p onClick={() => window.open("https://login-register-template.vercel.app/login", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://login-register-template.vercel.app/login</p>
+                  <p onClick={() => window.open("https://login-register-template.vercel.app/login", "_blank")} className='text-xs cursor-pointer tracking-tighter	 text-emerald-500 transition duration-300 hover:text-emerald-400 '>https://login-register-template.vercel.app/login</p>
                 </div>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center'>Repo <FaGithub className='ml-2' /></h2>
-                  <p onClick={() => window.open("https://github.com/pablodKampmann/login-register-template", "_blank")} className='text-xs cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/login-register-template</p>
+                  <p onClick={() => window.open("https://github.com/pablodKampmann/login-register-template", "_blank")} className='text-xs cursor-pointer tracking-tighter	 text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/login-register-template</p>
                 </div>
               </div>
               {!imageIsLoad ? (
@@ -195,9 +200,12 @@ export default function Work() {
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[300px] group-hover:w-[70%] ml-10 trasform transition-all duration-500 w-[60%] h-[250px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
+                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg ml-auto flex shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[310px] group-hover:w-[70%] trasform transition-all duration-1000 w-[60%] h-[265px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
               )}
             </div>
+
+            <div className='bg-tramparent w-full h-[70px]'></div>
+
 
           </div>
         </div>
