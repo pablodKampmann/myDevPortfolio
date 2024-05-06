@@ -115,6 +115,7 @@ export default function Work() {
 
   //IMAGES HANDLER LOADING
   const [imageIsLoad, setImageIsLoad] = useState(false);
+  const imageBlur = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8XwMAAoABfYJLKisAAAAASUVORK5CYII='
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -132,7 +133,7 @@ export default function Work() {
             {texts?.title} <MdDesignServices className='ml-2' />
           </div>
           <div className=''>
-              
+
             <div className={`flex relative group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-100 justify-center hover:py-10 border-transparent hover:border-b-2  ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject} px-8  h-[40%] hover:h-[45%] transition-all transform duration-500 items-center`}>
               <div className='font-bold group-hover:w-[25%] w-[40%] transition-all  duration-300 transform'>
                 My RoomMate App <span className='text-emerald-800'>({texts?.category_1})</span>
@@ -146,13 +147,9 @@ export default function Work() {
                   <p onClick={() => window.open("https://github.com/pablodKampmann/dental-agenda", "_blank")} className='text-[10px] tracking-tighter	 cursor-pointer text-emerald-500 transition duration-300 hover:text-emerald-400'>https://github.com/pablodKampmann/dental-agenda</p>
                 </div>
               </div>
-              {!imageIsLoad ? (
-                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[250px] ml-auto rounded-lg shadow-2xl`}>
-                  <ClipLoader color='#10b981' size={50} />
-                </div>
-              ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} ml-auto rounded-lg group-hover:opacity-100 shadow-2xl object-cover group-hover:h-[310px] group-hover:w-[70%]  trasform transition-all duration-[1000ms] w-[60%] h-[260px]`} quality={100} width={1919} height={917} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
-              )}
+              
+                <Image placeholder='blur' blurDataURL={imageBlur} onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} ml-auto rounded-lg group-hover:opacity-100 shadow-2xl object-cover group-hover:h-[310px] group-hover:w-[70%]  trasform transition-all duration-[1000ms] w-[60%] h-[260px]`} quality={100} width={1919} height={917} priority={true} src='/dentalAgenda-image.png' alt="dentalAgenda-image" />
+              
             </div>
 
             <div className='bg-tramparent w-full h-[70px]'></div>
@@ -163,7 +160,7 @@ export default function Work() {
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[350px] group-hover:w-[70%] mr-auto trasform transition-all duration-[1000ms] w-[60%] h-[310px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
+                <Image placeholder='blur' blurDataURL={imageBlur} onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[350px] group-hover:w-[70%] mr-auto trasform transition-all duration-[1000ms] w-[60%] h-[310px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
               )}
               <div className='font-bold group-hover:w-[25%] w-[35%] ml-6 transition-all  duration-300 transform'>
                 My RoomMate App <br /> <span className='text-emerald-800'>({texts?.category_1} & {texts?.category_2})</span>
@@ -200,7 +197,7 @@ export default function Work() {
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg ml-auto flex shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[310px] group-hover:w-[70%] trasform transition-all duration-1000 w-[60%] h-[265px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
+                <Image placeholder='blur' blurDataURL={imageBlur} onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg ml-auto flex shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[310px] group-hover:w-[70%] trasform transition-all duration-1000 w-[60%] h-[265px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
               )}
             </div>
 
