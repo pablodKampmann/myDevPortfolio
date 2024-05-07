@@ -167,7 +167,7 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
                 )}
 
                 <div onClick={() => { setShowOptions(false); setShowCancelButton(false) }} className={`${showOptions ? 'opacity-100 animate-move-from-left ' : 'opacity-0'} transition-opacity border-2 ${classes?.borderColor} duration-500 absolute  top-[12%] left-[1%] w-[220px] h-[100px] flex flex-col justify-center items-center bg-white bg-opacity-10 shadow-2xl rounded-xl`}>
-                    <h1 className="text-xs text-white mb-2.5 w-[80%] text-balance text-center">Seleccione el color primario de la interfaz</h1>
+                    <h1 className={`text-xs font-semibold ${classes?.textMain} mb-2.5 w-[80%] text-balance text-center`}>Seleccione el color primario de la interfaz</h1>
                     <div className="flex justify-center items-center space-x-4">
                         <button onClick={() => { handleColorChange('emerald'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'emerald' ? 'w-8 h-8 border-4 border-white' : 'w-6 h-6 hover:scale-125 transition duration-150'} bg-emerald-600  rounded-full`}></button>
                         <button onClick={() => { handleColorChange('rose'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'rose' ? 'w-8 h-8 border-4 border-white' : 'w-6 h-6 hover:scale-125 transition duration-150'} bg-rose-800 rounded-full`}></button>
@@ -191,7 +191,7 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
                 <Link href={'/tech'} prefetch={true}>
                     <div className={`${pathname === '/tech' ? `${classes?.bgPageSelected}  ${classes?.bgOpacityButtonPressed}` : `hover:${classes?.bgHoverButtons} ${classes?.bgColorButtons} bg-opacity-[2%]`} cursor-pointer focus:outline-none py-2 px-3 rounded-lg transition duration-150  w-full whitespace-nowrap`}><span className={`${classes?.textColorNumber}`}>04. </span>{texts?.technologies}</div>
                 </Link>
-                <div className={`bg-transparent font-semibold whitespace-nowrap white tracking-widest border-2 text-lg ${classes.textColorNumber} hover:border-white ${classes?.hoverButtton} hover:bg-opacity-70 hover:text-white transition duration-150 cursor-pointer flex justify-center items-center ${classes?.borderColor} rounded-md py-2 px-4 `}>{texts?.contact}<IoIosSend className="ml-2" size={26} /></div>
+                <div className={`bg-transparent font-semibold whitespace-nowrap white tracking-widest border-2 text-lg ${classes?.textColorNumber} hover:border-white ${classes?.hoverButtton} hover:bg-opacity-70 hover:text-white transition duration-150 cursor-pointer flex justify-center items-center ${classes?.borderColor} rounded-md py-2 px-4 `}>{texts?.contact}<IoIosSend className="ml-2" size={26} /></div>
             </div>
 
         </div >

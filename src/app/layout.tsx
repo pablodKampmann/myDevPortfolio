@@ -117,8 +117,8 @@ export default function RootLayout({
           <div className={`absolute right-9 bottom-[50%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
           <div className={`absolute -right-5 bottom-[68%] font-semibold text-${colorMain}-500 transform rotate-90`}>@pablokampmann</div>
           <div className={`absolute right-9 bottom-[80%] rounded-full ${classes?.bgLinesColor} h-8 w-1 `}></div>
-          <ToneMode tone={tone} handleToneChange={handleToneChange} />
-          <LanguageOptions tone={tone} language={language} handleLanguageChange={handleLanguageChange} />
+          <ToneMode tone={tone} colorMain={colorMain} handleToneChange={handleToneChange} />
+          <LanguageOptions tone={tone} language={language} colorMain={colorMain} handleLanguageChange={handleLanguageChange} />
           <NavBar tone={tone} language={language} colorMain={colorMain} handleColorChange={handleColorMainChange} />
           {children}
         </div>

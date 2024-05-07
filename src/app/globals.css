@@ -33,6 +33,10 @@ body {
 }
 
 /* Estilo básico de la barra de desplazamiento */
+:root {
+  --scrollbar-color: #059669; /* Color por defecto */
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -44,7 +48,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #059669;
+  background: var(--scrollbar-color);
   border-radius: 5px;
 }
 

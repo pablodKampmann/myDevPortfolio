@@ -20,6 +20,10 @@ export default function Work() {
       if (storedTone) {
         setTone(storedTone);
       }
+      const storedColorMain = localStorage.getItem('colorMain');
+      if (storedColorMain) {
+        setColorMain(storedColorMain);
+      }
     };
 
     window.addEventListener('storage', handleItemChange);
@@ -67,6 +71,8 @@ export default function Work() {
 
   //TONE
   const [tone, setTone] = useState<string>('dark')
+  const [classesTones, setClassesTones] = useState<any>(null);
+  const [colorMain, setColorMain] = useState<string>('emerald');
 
   useEffect(() => {
     const storedTone = localStorage.getItem('tone');
@@ -75,47 +81,108 @@ export default function Work() {
     }
   }, []);
 
-  const classesTones = {
-    dark: {
-      textColorMain: "text-white",
-      borderColorProjectsCont: "border-gray-900",
-      bgColorProjectsCont: "bg-blue-950",
-      bgOpacityProjectsCont: "bg-opacity-20",
-      bgHoverColorProject: "hover:bg-blue-950",
-      bgHoverOpacityProject: "hover:bg-opacity-20",
-      borderHoverColorProject: "hover:border-white",
-      borderHoverOpacityProject: "hover:border-opacity-10",
-      bgOpacityTitle: "bg-opacity-40",
-      bgOpacityLinks: "bg-opacity-10",
-      opacityImages: "opacity-50",
-      bgOpacityLoaderImage: "bg-opacity-10",
-      textColorLinks: "text-emerald-500",
-      textColorHoverLinks: "hover:text-emerald-400",
-    },
-    light: {
-      textColorMain: "text-black",
-      borderColorProjectsCont: "border-gray-400",
-      bgColorProjectsCont: "bg-white",
-      bgOpacityProjectsCont: "bg-opacity-90",
-      bgHoverColorProject: "hover:bg-gray-300",
-      bgHoverOpacityProject: "hover:bg-opacity-30",
-      borderHoverColorProject: "hover:border-gray-950",
-      borderHoverOpacityProject: "hover:border-opacity-30",
-      bgOpacityTitle: "bg-opacity-80",
-      bgOpacityLinks: "bg-opacity-100",
-      opacityImages: "opacity-70",
-      bgOpacityLoaderImage: "bg-opacity-100",
-      textColorLinks: "text-emerald-700",
-      textColorHoverLinks: "hover:text-emerald-500",
-    }
-  }
+  useEffect(() => {
+    const updateClassesTones = () => {
+      let bgColorTitle = '';
+      let textColorSubTitle = '';
+      let textColorLinks = '';
+      let textColorHoverLinks = '';
+
+      switch (colorMain) {
+        case 'emerald':
+          document.documentElement.style.setProperty('--scrollbar-color', '#059669');
+          bgColorTitle = tone === 'dark' ? "bg-emerald-600" : "bg-emerald-600";
+          textColorSubTitle = tone === 'dark' ? "text-emerald-800" : "bg-emerald-800";
+          textColorLinks = tone === 'dark' ? "text-emerald-500" : "text-emerald-500";
+          textColorHoverLinks = tone === 'dark' ? "hover:text-emerald-400" : "hover:text-emerald-400";
+
+          break;
+        case 'rose':
+          document.documentElement.style.setProperty('--scrollbar-color', '#e11d48');
+          bgColorTitle = tone === 'dark' ? "bg-rose-600" : "bg-rose-600";
+          textColorSubTitle = tone === 'dark' ? "text-rose-800" : "bg-rose-800";
+          textColorLinks = tone === 'dark' ? "text-rose-500" : "text-rose-500";
+          textColorHoverLinks = tone === 'dark' ? "hover:text-rose-400" : "hover:text-rose-400";
+
+          break;
+        case 'blue':
+          document.documentElement.style.setProperty('--scrollbar-color', '#2563eb');
+          bgColorTitle = tone === 'dark' ? "bg-blue-600" : "bg-blue-600";
+          textColorSubTitle = tone === 'dark' ? "text-blue-800" : "bg-blue-800";
+          textColorLinks = tone === 'dark' ? "text-blue-500" : "text-blue-500";
+          textColorHoverLinks = tone === 'dark' ? "hover:text-blue-400" : "hover:text-blue-400";
+
+          break;
+        case 'yellow':
+          document.documentElement.style.setProperty('--scrollbar-color', '#eab308');
+          bgColorTitle = tone === 'dark' ? "bg-yellow-600" : "bg-yellow-600";
+          textColorSubTitle = tone === 'dark' ? "text-yellow-800" : "bg-yellow-800";
+          textColorLinks = tone === 'dark' ? "text-yellow-500" : "text-yellow-500";
+          textColorHoverLinks = tone === 'dark' ? "hover:text-yellow-400" : "hover:text-yellow-400";
+
+          break;
+        default:
+          break;
+      }
+
+      setClassesTones({
+        dark: {
+          textColorMain: "text-white",
+          borderColorProjectsCont: "border-gray-900",
+          bgColorProjectsCont: "bg-blue-950",
+          bgOpacityProjectsCont: "bg-opacity-20",
+          bgHoverColorProject: "hover:bg-blue-950",
+          bgHoverOpacityProject: "hover:bg-opacity-20",
+          borderHoverColorProject: "hover:border-white",
+          borderHoverOpacityProject: "hover:border-opacity-10",
+          bgOpacityTitle: "bg-opacity-40",
+          bgOpacityLinks: "bg-opacity-10",
+          opacityImages: "opacity-50",
+          bgOpacityLoaderImage: "bg-opacity-10",
+          textColorLinks: textColorLinks,
+          textColorHoverLinks: textColorHoverLinks,
+          bgColorTitle: bgColorTitle,
+          textColorSubTitle: textColorSubTitle,
+        },
+        light: {
+          textColorMain: "text-black",
+          borderColorProjectsCont: "border-gray-400",
+          bgColorProjectsCont: "bg-white",
+          bgOpacityProjectsCont: "bg-opacity-90",
+          bgHoverColorProject: "hover:bg-gray-300",
+          bgHoverOpacityProject: "hover:bg-opacity-30",
+          borderHoverColorProject: "hover:border-gray-950",
+          borderHoverOpacityProject: "hover:border-opacity-30",
+          bgOpacityTitle: "bg-opacity-80",
+          bgOpacityLinks: "bg-opacity-100",
+          opacityImages: "opacity-70",
+          bgOpacityLoaderImage: "bg-opacity-100",
+          textColorLinks: textColorLinks,
+          textColorHoverLinks: textColorHoverLinks,
+          bgColorTitle: bgColorTitle,
+          textColorSubTitle: textColorSubTitle,
+
+        }
+      });
+    };
+
+    updateClassesTones();
+  }, [colorMain, tone]);
 
   let classes;
   if (tone === "dark") {
-    classes = classesTones.dark;
+    classes = classesTones?.dark;
   } else if (tone === "light") {
-    classes = classesTones.light;
+    classes = classesTones?.light;
   }
+
+  //COLOR MAIN
+  useEffect(() => {
+    const storedTone = localStorage.getItem('colorMain');
+    if (storedTone) {
+      setColorMain(storedTone);
+    }
+  }, []);
 
   //IMAGES HANDLER LOADING
   const [imageIsLoad, setImageIsLoad] = useState(false);
@@ -131,7 +198,7 @@ export default function Work() {
 
   return (
     <div className={`${classes?.textColorMain} flex flex-col justify-center items-center h-full pb-[4%]`}>
-      <div className={`bg-emerald-600 ${classes?.bgOpacityTitle} font-normal flex  ${classes?.borderColorProjectsCont} justify-center px-2 py-1.5 rounded shadow-2xl mb-8 items-center text-left text-4xl   `}>
+      <div className={`${classes?.bgColorTitle} ${classes?.bgOpacityTitle} font-normal flex  ${classes?.borderColorProjectsCont} justify-center px-2 py-1.5 rounded shadow-2xl mb-8 items-center text-left text-4xl   `}>
         {texts?.title} <MdDesignServices className='ml-2' />
       </div>
       <div className={`flex  h-[75%] border-4 relative ${classes?.borderColorProjectsCont} ${classes?.bgColorProjectsCont} ${classes?.bgOpacityProjectsCont} rounded-lg w-[70%]  shadow-2xl text-lg justify-center items-center `}>
@@ -142,7 +209,7 @@ export default function Work() {
             <div className={`flex relative group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-100 justify-center hover:py-10 border-transparent hover:border-b-2  ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject} p-8  transition-all transform duration-500 items-center`}>
 
               <div className='font-bold w-[30%] '>
-                My RoomMate App <span className='text-emerald-800'>({texts?.category_1})</span>
+                My RoomMate App <span className={`${classes?.textColorSubTitle}`}>({texts?.category_1})</span>
                 <p className='w-full text-sm  text-balance font-normal text-left'>{texts?.info_1}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
@@ -168,7 +235,7 @@ export default function Work() {
               )}
 
               <div className='font-bold w-[30%]'>
-                My RoomMate App <br /> <span className='text-emerald-800'>({texts?.category_1} & {texts?.category_2})</span>
+                My RoomMate App <br /> <span className={`${classes?.textColorSubTitle}`}>({texts?.category_1} & {texts?.category_2})</span>
                 <p className='w-full text-sm text-balance font-normal text-left'>{texts?.info_2}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
@@ -187,7 +254,7 @@ export default function Work() {
             <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition  duration-500 justify-center hover:py-10 border-transparent  hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 transition-all transform duration-500 items-center`}>
 
               <div className='font-bold w-[30%]'>
-                Login & Register Template <br /><span className='text-emerald-800'>({texts?.category_1} & {texts?.category_2})</span>
+                Login & Register Template <br /><span className={`${classes?.textColorSubTitle}`}>({texts?.category_1} & {texts?.category_2})</span>
                 <p className='w-full text-sm text-balance font-normal text-left'>{texts?.info_3}</p>
                 <div className={`bg-white w-[80%] px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
