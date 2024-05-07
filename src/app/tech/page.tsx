@@ -8,6 +8,7 @@ import { TbArrowWaveRightUp } from "react-icons/tb";
 export default function Tech() {
     const [option, setOption] = useState('languages');
     const [category, setCategory] = useState('primary');
+    const imageBlur = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8XwMAAoABfYJLKisAAAAASUVORK5CYII='
 
     //LISTENER DEL LOCALSTORAGE
     useEffect(() => {
@@ -112,55 +113,55 @@ export default function Tech() {
             <h1 className="text-base text-center mt-4 w-[50%]">{texts?.info}</h1>
             <TbArrowWaveRightUp size={50} className="text-emerald-600 opacity-20 mt-6 mb-6 rotate-90" />
             <div className="flex justify-center select-none space-x-4 items-center">
-                <div onClick={() => setOption('languages')} className={`${option === 'languages' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_1}</div>
-                <div onClick={() => setOption('frontend')} className={`${option === 'frontend' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_2}</div>
-                <div onClick={() => setOption('backend')} className={`${option === 'backend' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200  rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_3}</div>
+                <button onClick={() => setOption('languages')} className={`${option === 'languages' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_1}</button>
+                <button onClick={() => setOption('frontend')} className={`${option === 'frontend' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_2}</button>
+                <button onClick={() => setOption('backend')} className={`${option === 'backend' ? 'bg-emerald-600' : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200  rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_3}</button>
             </div>
             <div className={`${option === 'languages' && category !== 'secondary' && 'w-[840px]'} ${option === 'languages' && category === 'secondary' && 'w-[450px]'} ${option === 'frontend' && 'w-[450px]'} ${option === 'backend' && 'w-[720px]'} ${classes?.bgColorImages} ${classes?.bgOpacityImages} select-none transition-width ease-in-out duration-300  flex relative border-4 rounded-lg shadow-2xl ${classes?.borderImagesColor} px-6 py-6 mt-2 justify-center items-center`}>
                 {option === 'languages' && (
                     <div>
                         <div className="absolute space-x-2 flex text-sm justify-center items-center top-0.5 left-2">
-                            <div onClick={() => setCategory('primary')} className={`${category === 'primary' ? `${classes?.textColorCategory} underline` : `${classes?.textColorClass}`}  mr-2 cursor-pointer`}>
+                            <button onClick={() => setCategory('primary')} className={`${category === 'primary' ? `${classes?.textColorCategory} underline` : `${classes?.textColorClass}`}  mr-2 cursor-pointer`}>
                                 {texts?.category_1}
-                            </div>
+                            </button>
                             /
-                            <div onClick={() => setCategory('secondary')} className={`${category === 'secondary' ? `${classes?.textColorCategory} underline` : `${classes?.textColorClass}`}   cursor-pointer`}>
+                            <button onClick={() => setCategory('secondary')} className={`${category === 'secondary' ? `${classes?.textColorCategory} underline` : `${classes?.textColorClass}`}   cursor-pointer`}>
                                 {texts?.category_2}
-                            </div>
+                            </button>
                         </div>
                         {category === 'primary' && (
                             <div className="space-x-6 flex justify-center mt-4 items-center">
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='tailwind-icon.svg' alt="tailwind-icon" />
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='html-icon.svg' alt="html-icon" />
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='typescript-icon.svg' alt="typescript-icon" />
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='css-icon.svg' alt="css-icon" />
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='javascript-icon.svg' alt="javascript-icon" />
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='git-icon.svg' alt="git-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='tailwind-icon.svg' alt="tailwind-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='html-icon.svg' alt="html-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='typescript-icon.svg' alt="typescript-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='css-icon.svg' alt="css-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='javascript-icon.svg' alt="javascript-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='git-icon.svg' alt="git-icon" />
                             </div>
                         )}
                         {category === 'secondary' && (
                             <div className="space-x-6 flex justify-center  mt-4 items-center">
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='c-icon.svg' alt="c-icon" />
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='php-icon.svg' alt="php-icon" />
-                                <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='python-icon.svg' alt="python-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='c-icon.svg' alt="c-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='php-icon.svg' alt="php-icon" />
+                                <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='python-icon.svg' alt="python-icon" />
                             </div>
                         )}
                     </div>
                 )}
                 {option === 'frontend' && (
                     <div className="space-x-6 flex justify-center mt-4 items-center">
-                        <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='nextjs-icon.svg' alt="nextjs-icon" />
-                        <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='react-icon.svg' alt="react-icon" />
-                        <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='astro-icon.svg' alt="astro-icon" />
+                        <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='nextjs-icon.svg' alt="nextjs-icon" />
+                        <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='react-icon.svg' alt="react-icon" />
+                        <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='astro-icon.svg' alt="astro-icon" />
                     </div>
                 )}
                 {option === 'backend' && (
                     <div className="space-x-6 flex justify-center mt-4 items-center">
-                        <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='nodejs-icon.svg' alt="nodejs-icon" />
-                        <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='firebase-icon.svg' alt="firebase-icon" />
-                        <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='mongodb-icon.svg' alt="mongodb-icon" />
-                        <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='mysql-icon.svg' alt="mysql-icon" />
-                        <Image className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='microsoftsql-icon.svg' alt="microsoftsql-icon" />
+                        <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='nodejs-icon.svg' alt="nodejs-icon" />
+                        <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='firebase-icon.svg' alt="firebase-icon" />
+                        <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='mongodb-icon.svg' alt="mongodb-icon" />
+                        <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='mysql-icon.svg' alt="mysql-icon" />
+                        <Image placeholder='blur' blurDataURL={imageBlur} className="transition-transform duration-300 w-[110px] h-[110px] transform hover:scale-125 hover:-translate-y-2" quality={100} width={110} height={110} priority={true} src='microsoftsql-icon.svg' alt="microsoftsql-icon" />
                     </div>
                 )}
             </div>

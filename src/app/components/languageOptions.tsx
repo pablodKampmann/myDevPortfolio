@@ -40,7 +40,7 @@ export default function LanguageOptions({ tone, language, handleLanguageChange }
     }
 
     return (
-        <div onClick={() => setOpen(!open)} className={`${open ? `${classes?.bgColor} ${classes?.bgOpacity} rounded-lg` : `${classes?.bgIconColor} ${classes?.bgIconOpacity} hover:bg-opacity-25  rounded-full p-1`} absolute ${classes?.textColor}  transition duration-200 bottom-3 right-3 z-10`}>
+        <button onClick={() => setOpen(!open)} className={`${open ? `${classes?.bgColor} ${classes?.bgOpacity} rounded-lg` : `${classes?.bgIconColor} ${classes?.bgIconOpacity} hover:bg-opacity-25  rounded-full p-1`} absolute ${classes?.textColor}  transition duration-200 bottom-3 right-3 z-10`}>
             <div className={`${open ? 'border-2 py-4 px-4' : 'cursor-pointer'}  select-none flex flex-col relative  border-emerald-600 shadow-2xl rounded-lg  justify-center items-center`}>
                 {open && (
                     <div className="absolute cursor-pointer text-2xl -top-1 right-2">x</div>
@@ -54,11 +54,11 @@ export default function LanguageOptions({ tone, language, handleLanguageChange }
                 )}
                 {open && (
                     <div className="flex border-t-2 w-full space-y-2  flex-col">
-                        <div onClick={() => handleLanguageChange('eng')} className={`${language === 'eng' ? 'text-emerald-500 hover:text-black' : ''} mt-2 rounded px-1 cursor-pointer py-0.5 ${classes?.hoverButtonColor}`}>1. English</div>
-                        <div onClick={() => handleLanguageChange('spa')} className={`${language === 'spa' ? 'text-emerald-500 hover:text-black' : ''} px-1 rounded py-0.5 hover:bg-emerald-800 cursor-pointer ${classes?.hoverButtonColor}`}>2. Español</div>
+                        <button onClick={() => handleLanguageChange('eng')} className={`${language === 'eng' ? 'text-emerald-500 hover:text-black' : ''} mt-2 text-left rounded px-2 cursor-pointer py-0.5 ${classes?.hoverButtonColor}`}>1. English</button>
+                        <button onClick={() => handleLanguageChange('spa')} className={`${language === 'spa' ? 'text-emerald-500 hover:text-black' : ''} px-2 text-left rounded py-0.5 hover:bg-emerald-800 cursor-pointer ${classes?.hoverButtonColor}`}>2. Español</button>
                     </div>
                 )}
             </div>
-        </div>
+        </button>
     );
 }

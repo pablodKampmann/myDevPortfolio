@@ -32,7 +32,9 @@ export default function RootLayout({
   };
 
   //TONE
-  const [tone, setTone] = useState<string>('dark')
+  const [tone, setTone] = useState<string>('dark');
+  const [classesTones, setClassesTones] = useState<any>(null);
+  const [colorMain, setColorMain] = useState<string>('emerald');
 
   useEffect(() => {
     const storedTone = localStorage.getItem('tone');
@@ -47,26 +49,63 @@ export default function RootLayout({
     window.dispatchEvent(new Event("storage"));
   };
 
-  const classesTones = {
-    dark: {
-      bgMainColor: "bg-blue-950",
-      bgMainOpacity: "bg-opacity-20",
-      bgLinesColor: "bg-emerald-600",
-    },
-    light: {
-      bgMainColor: "bg-zinc-100",
-      bgMainOpacity: "bg-opacity-90",
-      bgLinesColor: "bg-emerald-500",
-    }
-  }
+  useEffect(() => {
+    const updateClassesTones = () => {
+      let bgLinesColor = '';
+      switch (colorMain) {
+        case 'emerald':
+          bgLinesColor = tone === 'dark' ? "bg-emerald-600" : "bg-emerald-500";
+          break;
+        case 'rose':
+          bgLinesColor = tone === 'dark' ? "bg-rose-600" : "bg-rose-500";
+          break;
+        case 'blue':
+          bgLinesColor = tone === 'dark' ? "bg-blue-600" : "bg-blue-500";
+          break;
+        case 'yellow':
+          bgLinesColor = tone === 'dark' ? "bg-yellow-600" : "bg-yellow-500";
+          break;
+        default:
+          break;
+      }
+
+      setClassesTones({
+        dark: {
+          bgMainColor: "bg-blue-950",
+          bgMainOpacity: "bg-opacity-20",
+          bgLinesColor: bgLinesColor,
+        },
+        light: {
+          bgMainColor: "bg-zinc-100",
+          bgMainOpacity: "bg-opacity-90",
+          bgLinesColor: bgLinesColor,
+        }
+      });
+    };
+
+    updateClassesTones();
+  }, [colorMain, tone]);
 
   let classes;
   if (tone === "dark") {
-    classes = classesTones.dark;
+    classes = classesTones?.dark;
   } else if (tone === "light") {
-    classes = classesTones.light;
+    classes = classesTones?.light;
   }
 
+  //COLOR MAIN
+  useEffect(() => {
+    const storedTone = localStorage.getItem('colorMain');
+    if (storedTone) {
+      setColorMain(storedTone);
+    }
+  }, []);
+
+  const handleColorMainChange = (newColor: string) => {
+    setColorMain(newColor);
+    localStorage.setItem('colorMain', newColor);
+    window.dispatchEvent(new Event("storage"));
+  };
 
   return (
     <html lang="en">
@@ -76,11 +115,11 @@ export default function RootLayout({
           <div className={`absolute left-9 bottom-[46%] rounded-full ${classes?.bgLinesColor} h-4 w-1 `}></div>
           <div className={`absolute left-9 bottom-[54%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
           <div className={`absolute right-9 bottom-[50%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
-          <div className={`absolute -right-5 bottom-[68%] font-semibold text-emerald-500 transform rotate-90`}>@pablokampmann</div>
+          <div className={`absolute -right-5 bottom-[68%] font-semibold text-${colorMain}-500 transform rotate-90`}>@pablokampmann</div>
           <div className={`absolute right-9 bottom-[80%] rounded-full ${classes?.bgLinesColor} h-8 w-1 `}></div>
           <ToneMode tone={tone} handleToneChange={handleToneChange} />
           <LanguageOptions tone={tone} language={language} handleLanguageChange={handleLanguageChange} />
-          <NavBar tone={tone} language={language} />
+          <NavBar tone={tone} language={language} colorMain={colorMain} handleColorChange={handleColorMainChange} />
           {children}
         </div>
       </body>
