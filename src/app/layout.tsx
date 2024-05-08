@@ -113,9 +113,14 @@ export default function RootLayout({
 
   useEffect(() => {
     if (classesTones) {
-      setIsLoading(false);
+      const timeoutId = setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+
+      return () => clearTimeout(timeoutId);
     }
   }, [classesTones]);
+
 
   return (
     <html lang="en">

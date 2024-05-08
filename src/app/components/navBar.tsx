@@ -154,7 +154,7 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
         const timeoutId = setTimeout(() => {
             setShowOptions(false);
             setShowCancelButton(false);
-        }, 500000);
+        }, 5000);
 
         return () => clearTimeout(timeoutId);
 
