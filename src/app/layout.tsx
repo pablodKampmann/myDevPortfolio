@@ -111,9 +111,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className={`h-screen overflow-y-hidden relative ${classes?.bgMainColor} transition duration-200 ${classes?.bgMainOpacity}`}>
-          <div className={`absolute left-9 bottom-[18%] rounded-full ${classes?.bgLinesColor} h-40 w-1 `}></div>
-          <div className={`absolute left-9 bottom-[46%] rounded-full ${classes?.bgLinesColor} h-4 w-1 `}></div>
-          <div className={`absolute left-9 bottom-[54%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
+          <div className={`absolute left-9 bottom-[14%] rounded-full ${classes?.bgLinesColor} h-40 w-1 `}></div>
+          <div className={`absolute left-9 bottom-[41%] rounded-full ${classes?.bgLinesColor} h-4 w-1 `}></div>
+          <div className={`absolute left-9 bottom-[48%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
           <div className={`absolute right-9 bottom-[50%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
           <div className={`absolute -right-5 bottom-[68%] font-semibold text-${colorMain}-500 transform rotate-90`}>@pablokampmann</div>
           <div className={`absolute right-9 bottom-[80%] rounded-full ${classes?.bgLinesColor} h-8 w-1 `}></div>

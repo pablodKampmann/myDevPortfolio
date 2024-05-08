@@ -92,7 +92,7 @@ export default function Work() {
         case 'emerald':
           document.documentElement.style.setProperty('--scrollbar-color', '#059669');
           bgColorTitle = tone === 'dark' ? "bg-emerald-600" : "bg-emerald-600";
-          textColorSubTitle = tone === 'dark' ? "text-emerald-800" : "bg-emerald-800";
+          textColorSubTitle = tone === 'dark' ? "text-emerald-800" : "text-emerald-800";
           textColorLinks = tone === 'dark' ? "text-emerald-500" : "text-emerald-500";
           textColorHoverLinks = tone === 'dark' ? "hover:text-emerald-400" : "hover:text-emerald-400";
 
@@ -100,7 +100,7 @@ export default function Work() {
         case 'rose':
           document.documentElement.style.setProperty('--scrollbar-color', '#e11d48');
           bgColorTitle = tone === 'dark' ? "bg-rose-600" : "bg-rose-600";
-          textColorSubTitle = tone === 'dark' ? "text-rose-800" : "bg-rose-800";
+          textColorSubTitle = tone === 'dark' ? "text-rose-800" : "text-rose-800";
           textColorLinks = tone === 'dark' ? "text-rose-500" : "text-rose-500";
           textColorHoverLinks = tone === 'dark' ? "hover:text-rose-400" : "hover:text-rose-400";
 
@@ -108,7 +108,7 @@ export default function Work() {
         case 'blue':
           document.documentElement.style.setProperty('--scrollbar-color', '#2563eb');
           bgColorTitle = tone === 'dark' ? "bg-blue-600" : "bg-blue-600";
-          textColorSubTitle = tone === 'dark' ? "text-blue-800" : "bg-blue-800";
+          textColorSubTitle = tone === 'dark' ? "text-blue-800" : "text-blue-800";
           textColorLinks = tone === 'dark' ? "text-blue-500" : "text-blue-500";
           textColorHoverLinks = tone === 'dark' ? "hover:text-blue-400" : "hover:text-blue-400";
 
@@ -116,7 +116,7 @@ export default function Work() {
         case 'yellow':
           document.documentElement.style.setProperty('--scrollbar-color', '#eab308');
           bgColorTitle = tone === 'dark' ? "bg-yellow-600" : "bg-yellow-600";
-          textColorSubTitle = tone === 'dark' ? "text-yellow-800" : "bg-yellow-800";
+          textColorSubTitle = tone === 'dark' ? "text-yellow-800" : "text-yellow-800";
           textColorLinks = tone === 'dark' ? "text-yellow-500" : "text-yellow-500";
           textColorHoverLinks = tone === 'dark' ? "hover:text-yellow-400" : "hover:text-yellow-400";
 
@@ -201,7 +201,7 @@ export default function Work() {
       <div className={`${classes?.bgColorTitle} ${classes?.bgOpacityTitle} font-normal flex  ${classes?.borderColorProjectsCont} justify-center px-2 py-1.5 rounded shadow-2xl mb-8 items-center text-left text-4xl   `}>
         {texts?.title} <MdDesignServices className='ml-2' />
       </div>
-      <div className={`flex  h-[75%] border-4 relative ${classes?.borderColorProjectsCont} ${classes?.bgColorProjectsCont} ${classes?.bgOpacityProjectsCont} rounded-lg w-[70%]  shadow-2xl text-lg justify-center items-center `}>
+      <div className={`flex h-[75%] border-4 relative ${classes?.borderColorProjectsCont} ${classes?.bgColorProjectsCont} ${classes?.bgOpacityProjectsCont} rounded-lg w-[70%]  shadow-2xl text-lg justify-center items-center `}>
         <div className='overflow-y-auto bg-transparent  overflow-x-hidden flex flex-col h-full '>
 
           <div className=''>
