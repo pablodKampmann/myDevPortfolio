@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import React, { useState, useEffect } from 'react';
 import { MdOutlineCancel } from "react-icons/md";
-import { BsPaletteFill } from "react-icons/bs";
 
 interface NavBarProps {
     tone: string;

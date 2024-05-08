@@ -6,6 +6,7 @@ import NavBar from "./components/navBar";
 import LanguageOptions from "./components/languageOptions";
 import React, { useState, useEffect } from 'react';
 import ToneMode from "./components/toneMode";
+import Loading from "./components/loading";
 
 const inter = Inconsolata({ subsets: ["latin"] });
 
@@ -107,21 +108,34 @@ export default function RootLayout({
     window.dispatchEvent(new Event("storage"));
   };
 
+  //LOADING
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (classesTones) {
+      setIsLoading(false);
+    }
+  }, [classesTones]);
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className={`h-screen overflow-y-hidden relative ${classes?.bgMainColor} transition duration-200 ${classes?.bgMainOpacity}`}>
-          <div className={`absolute left-9 bottom-[14%] rounded-full ${classes?.bgLinesColor} h-40 w-1 `}></div>
-          <div className={`absolute left-9 bottom-[41%] rounded-full ${classes?.bgLinesColor} h-4 w-1 `}></div>
-          <div className={`absolute left-9 bottom-[48%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
-          <div className={`absolute right-9 bottom-[50%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
-          <div className={`absolute -right-5 bottom-[68%] font-semibold text-${colorMain}-500 transform rotate-90`}>@pablokampmann</div>
-          <div className={`absolute right-9 bottom-[80%] rounded-full ${classes?.bgLinesColor} h-8 w-1 `}></div>
-          <ToneMode tone={tone} colorMain={colorMain} handleToneChange={handleToneChange} />
-          <LanguageOptions tone={tone} language={language} colorMain={colorMain} handleLanguageChange={handleLanguageChange} />
-          <NavBar tone={tone} language={language} colorMain={colorMain} handleColorChange={handleColorMainChange} />
-          {children}
-        </div>
+        {!isLoading ? (
+          <div className={`h-screen overflow-y-hidden relative ${classes?.bgMainColor} transition duration-200 ${classes?.bgMainOpacity}`}>
+            <div className={`absolute left-9 bottom-[14%] rounded-full ${classes?.bgLinesColor} h-40 w-1 `}></div>
+            <div className={`absolute left-9 bottom-[41%] rounded-full ${classes?.bgLinesColor} h-4 w-1 `}></div>
+            <div className={`absolute left-9 bottom-[48%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
+            <div className={`absolute right-9 bottom-[50%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
+            <div className={`absolute -right-5 bottom-[68%] font-semibold text-${colorMain}-500 transform rotate-90`}>@pablokampmann</div>
+            <div className={`absolute right-9 bottom-[80%] rounded-full ${classes?.bgLinesColor} h-8 w-1 `}></div>
+            <ToneMode tone={tone} colorMain={colorMain} handleToneChange={handleToneChange} />
+            <LanguageOptions tone={tone} language={language} colorMain={colorMain} handleLanguageChange={handleLanguageChange} />
+            <NavBar tone={tone} language={language} colorMain={colorMain} handleColorChange={handleColorMainChange} />
+            {children}
+          </div>
+        ) : (
+          <Loading />
+        )}
       </body>
     </html>
   );
