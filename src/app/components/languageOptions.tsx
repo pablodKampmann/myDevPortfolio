@@ -106,7 +106,7 @@ export default function LanguageOptions({ tone, language, colorMain, handleLangu
                 {open && (
                     <div className="flex border-t-2 w-full space-y-2  flex-col">
                         <button onClick={() => handleLanguageChange('eng')} className={`${language === 'eng' ? `${classes?.textColorButtonSelected} hover:text-black` : ''} mt-2 text-left rounded px-2 cursor-pointer py-0.5 ${classes?.hoverButtonColor}`}>1. English</button>
-                        <button onClick={() => handleLanguageChange('spa')} className={`${language === 'spa' ? `${classes?.textColorButtonSelected} hover:text-black` : ''} px-2 text-left rounded py-0.5 hover:bg-emerald-800 cursor-pointer ${classes?.hoverButtonColor}`}>2. Español</button>
+                        <button onClick={() => handleLanguageChange('spa')} className={`${language === 'spa' ? `${classes?.textColorButtonSelected} hover:text-black` : ''} px-2 text-left rounded py-0.5 cursor-pointer ${classes?.hoverButtonColor}`}>2. Español</button>
                     </div>
                 )}
             </div>
