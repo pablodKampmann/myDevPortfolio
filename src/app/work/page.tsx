@@ -259,11 +259,11 @@ export default function Work() {
                 <p className='w-full text-sm text-balance font-normal text-left'>{texts?.info_3}</p>
                 <div className={`bg-white w-[80%] px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
-                  <button onClick={() => window.open("https://login-register-template.vercel.app/login", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://login-register-template.vercel.app/login</button>
+                  <button onClick={() => window.open("https://youtubemusic-clone.vercel.app/", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://login-register-template.vercel.app/login</button>
                 </div>
                 <div className={`bg-white w-[80%] px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center'>Repo <FaGithub className='ml-2' /></h2>
-                  <button onClick={() => window.open("https://github.com/pablodKampmann/login-register-template", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://github.com/pablodKampmann/login-register-template</button>
+                  <button onClick={() => window.open("https://github.com/pablodKampmann/youTubeMusic-Clone", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://github.com/pablodKampmann/login-register-template</button>
                 </div>
               </div>
 
