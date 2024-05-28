@@ -6,9 +6,11 @@ import { FaDev, FaGithub, FaEnvelope } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { CgClose } from "react-icons/cg";
+import { useRouter } from 'next/navigation'
 
 export default function AboutMe() {
   const imageBlur = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8XwMAAoABfYJLKisAAAAASUVORK5CYII='
+  const router = useRouter()
 
   //LISTENER DEL LOCALSTORAGE
   useEffect(() => {
@@ -191,13 +193,13 @@ export default function AboutMe() {
     <div className={`${classes?.textColorMain} flex flex-col justify-center items-center h-full pb-[6%]`}>
       <div className={`w-[50%] h-[65%] flex flex-col justify-start  p-8 relative bg-white ${classes?.bgOpacityMain} rounded-2xl shadow-2xl`}>
         <div className=''>
-          <h2 className='uppercase flex items-center  text-lg text-opacity-80'>{texts?.title_1} <FaDev className={`ml-4 ${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo} p-1 rounded ${classes?.textMainColor}`} size={28} /></h2>
-          <h1 className={`${classes?.textMainColor} font-semibold text-3xl `}>Pablo Kampmann</h1>
+          <h2 className='uppercase flex items-center  laptop:text-lg desktop:text-xl text-opacity-80'>{texts?.title_1} <FaDev className={`ml-4 ${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo} p-1 rounded ${classes?.textMainColor}`} size={28} /></h2>
+          <h1 className={`${classes?.textMainColor} font-semibold laptop:text-3xl desktop:text-4xl `}>Pablo Kampmann</h1>
         </div>
-        <div className='w-[70%]   space-y-4 text-sm mt-4'>
+        <div className='w-[70%] space-y-4  laptop:text-sm desktop:text-lg  mt-4'>
           <p className={`${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo} py-1 px-2 rounded-md`}>{texts?.text_1}</p>
-          <p className={`${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo}  py-1 px-2  rounded-md`}>{texts?.text_2_part_1} <a href='/work' className={`${classes?.textLinkColor} ${classes?.hoverTextLinkColor} hover:cursor-pointer transition duration-150`}>{texts?.text_link_1}</a>{texts?.text_2_part_2}</p>
-          <p className={`${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo} py-1 px-2  rounded-md`}>{texts?.text_3_part_1} <a href='/tech' className={`${classes?.textLinkColor} ${classes?.hoverTextLinkColor} hover:cursor-pointer transition duration-150`}>{texts?.text_link_2} </a>{texts?.text_3_part_2}</p>
+          <p className={`${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo}  py-1 px-2  rounded-md`}>{texts?.text_2_part_1} <a onClick={() => router.push('/work')} className={`${classes?.textLinkColor} ${classes?.hoverTextLinkColor} hover:cursor-pointer transition duration-150`}>{texts?.text_link_1}</a>{texts?.text_2_part_2}</p>
+          <p className={`${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo} py-1 px-2  rounded-md`}>{texts?.text_3_part_1} <a onClick={() => router.push('/tech')} className={`${classes?.textLinkColor} ${classes?.hoverTextLinkColor} hover:cursor-pointer transition duration-150`}>{texts?.text_link_2} </a>{texts?.text_3_part_2}</p>
         </div>
         <div className='absolute -top-10 -right-10'>
           <Image placeholder='blur' blurDataURL={imageBlur} className={`rounded-full border-4  border-emerald-600  shadow-2xl object-cover w-[200px] h-[200px]`} quality={100} width={959} height={1280} priority={true} src='/me-image.jpg' alt="me-image" />

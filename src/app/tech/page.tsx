@@ -173,19 +173,19 @@ export default function Tech() {
     }, []);
 
     return (
-        <div className={`${classes?.textColorClass} flex flex-col justify-center items-center h-full pb-[6%]`}>
+        <div className={`${classes?.textColorClass} flex flex-col  justify-center items-center h-full pb-[6%]`}>
             <h1 className={`text-4xl ${classes?.bgColorTitle} px-4 bg-opacity-30 py-4 flex justify-center items-center rounded-md`}>{texts?.technologies} <GrTechnology size={32} className={`ml-4 bg-white bg-opacity-90 p-1 rounded-full ${classes?.textColorTitleIcon}`} /></h1>
-            <h1 className="text-base text-center mt-4 w-[50%]">{texts?.info}</h1>
+            <h1 className="laptop:text-base desktop:text-lg text-center mt-4 w-[50%]">{texts?.info}</h1>
             <TbArrowWaveRightUp size={50} className={`${classes?.textColorArrow} opacity-20 mt-6 mb-6 rotate-90`} />
             <div className="flex justify-center select-none space-x-4 items-center">
-                <button onClick={() => setOption('languages')} className={`${option === 'languages' ? `${classes?.bgColorTitle}` : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_1}</button>
-                <button onClick={() => setOption('frontend')} className={`${option === 'frontend' ? `${classes?.bgColorTitle}` : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_2}</button>
-                <button onClick={() => setOption('backend')} className={`${option === 'backend' ? `${classes?.bgColorTitle}` : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200  rounded-md text-lg  px-2 py-1 cursor-pointer`}>{texts?.option_3}</button>
+                <button onClick={() => setOption('languages')} className={`${option === 'languages' ? `${classes?.bgColorTitle}` : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md laptop:text-lg desktop:text-xl  px-2 py-1 cursor-pointer`}>{texts?.option_1}</button>
+                <button onClick={() => setOption('frontend')} className={`${option === 'frontend' ? `${classes?.bgColorTitle}` : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200 rounded-md laptop:text-lg desktop:text-xl px-2 py-1 cursor-pointer`}>{texts?.option_2}</button>
+                <button onClick={() => setOption('backend')} className={`${option === 'backend' ? `${classes?.bgColorTitle}` : `${classes?.hoverColorButtons} ${classes?.hoverOpacityButtons}`} transition duration-200  rounded-md laptop:text-lg desktop:text-xl px-2 py-1 cursor-pointer`}>{texts?.option_3}</button>
             </div>
             <div className={`${option === 'languages' && category !== 'secondary' && 'w-[840px]'} ${option === 'languages' && category === 'secondary' && 'w-[450px]'} ${option === 'frontend' && 'w-[450px]'} ${option === 'backend' && 'w-[720px]'} ${classes?.bgColorImages} ${classes?.bgOpacityImages} select-none transition-width ease-in-out duration-300  flex relative rounded-lg  shadow-2xl  px-6 py-6 mt-2 justify-center items-center`}>
                 {option === 'languages' && (
                     <div>
-                        <div className="absolute space-x-2 flex text-sm justify-center items-center top-0.5 left-2">
+                        <div className="absolute space-x-2 flex laptop:text-sm desktop:text-base justify-center items-center top-0.5 left-2">
                             <button onClick={() => setCategory('primary')} className={`${category === 'primary' ? `${classes?.textColorCategory} underline` : `${classes?.textColorClass}`}  mr-2 cursor-pointer`}>
                                 {texts?.category_1}
                             </button>

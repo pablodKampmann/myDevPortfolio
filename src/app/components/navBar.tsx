@@ -192,7 +192,7 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
 
             </div>
 
-            <div className={`${classes?.textMain} flex space-x-4  justify-end items-center mr-4`}>
+            <div className={`${classes?.textMain} flex space-x-4 desktop:text-lg laptop:text-base  justify-end items-center mr-4`}>
                 <Link href={'/'} prefetch={true}>
                     <div className={`${pathname === '/' ? `${classes?.bgPageSelected}  ${classes?.bgOpacityButtonPressed} ` : `${classes?.bgOpacityHoverButtons} ${classes?.bgColorButtons} bg-opacity-[2%]`} cursor-pointer  focus:outline-none  py-2 px-3 rounded-lg transition duration-150  w-full whitespace-nowrap`}><span className={`${classes?.textColorNumber}`}>01. </span>{texts?.about}</div>
                 </Link>

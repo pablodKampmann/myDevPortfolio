@@ -19,7 +19,7 @@ export default function Work() {
       const storedTone = localStorage.getItem('tone');
       if (storedTone) {
         console.log(storedTone);
-        
+
         setTone(storedTone);
       }
       const storedColorMain = localStorage.getItem('colorMain');
@@ -50,7 +50,8 @@ export default function Work() {
       title: "Projects",
       info_1: "Administrative application for a health clinic, especially oriented to the area of ​​dentistry. This tool provides a comprehensive solution for managing patients, shifts, medical records, treatments, finances, among others.",
       info_2: "Social mobile application that helps you find a roommate. It offers various forms of interaction, such as 'matches', likes, chats and user profiles, thus facilitating the search and choice of the ideal partner.",
-      info_3: "Completely responsive template that includes a login page, a registration page and its two mobile versions.",
+      info_3: "YouTube Music clone with responsive design for all devices. The clone has been created manually, replicating the original design without copying code.",
+      info_4: "Completely responsive template that includes a login page, a registration page and its two mobile versions.",
       category_1: "Desktop",
       category_2: "Mobile",
     },
@@ -58,7 +59,8 @@ export default function Work() {
       title: "Proyectos",
       info_1: "Aplicación administrativa para una clínica de salud, especialmente orientada al área de odontología. Esta herramienta proporciona una solución integral para la gestión de pacientes, turnos, historias clínicas, tratamientos, finanzas, entre otras.",
       info_2: "Aplicación móvil social que te ayuda a conseguir compañero de piso. Ofrece diversas formas de interacción, como 'matches', likes, chats y perfiles de usuarios, facilitando así la búsqueda y elección del compañero ideal.",
-      info_3: "Template completamente responsive que incluye una página de inicio de sesión, otra de registro y sus dos versiones móviles.",
+      info_3: "Clon de YouTube Music con diseño adaptable para todos los dispositivos. El clon ha sido creado manualmente, replicando el diseño original sin copiar código.",
+      info_4: "Template completamente responsive que incluye una página de inicio de sesión, otra de registro y sus dos versiones móviles.",
       category_1: "Escritorio",
       category_2: "Móvil",
     }
@@ -210,9 +212,9 @@ export default function Work() {
 
             <div className={`flex relative group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition duration-100 justify-center hover:py-10 border-transparent hover:border-b-2  ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject} p-8  transition-all transform duration-500 items-center`}>
 
-              <div className='font-bold w-[30%] '>
+              <div className='font-bold desktop:text-xl w-[30%] '>
                 My RoomMate App <span className={`${classes?.textColorSubTitle}`}>({texts?.category_1})</span>
-                <p className='w-full text-sm  text-balance font-normal text-left'>{texts?.info_1}</p>
+                <p className='w-full laptop:text-sm desktop:text-lg  text-balance font-normal text-left'>{texts?.info_1}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
                   <button onClick={() => window.open("https://dental-agenda.vercel.app/", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://dental-agenda.vercel.app/</button>
@@ -236,9 +238,9 @@ export default function Work() {
                 <Image placeholder='blur' blurDataURL={imageBlur} onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[360px] group-hover:w-[65%] mr-auto trasform transition-all duration-700 w-[60%] h-[335px]`} quality={100} width={1920} height={1080} priority={true} src='/MyRoomMate-image.png' alt="MyRoomMate-image" />
               )}
 
-              <div className='font-bold w-[30%]'>
+              <div className='font-bold desktop:text-xl w-[30%]'>
                 My RoomMate App <br /> <span className={`${classes?.textColorSubTitle}`}>({texts?.category_1} & {texts?.category_2})</span>
-                <p className='w-full text-sm text-balance font-normal text-left'>{texts?.info_2}</p>
+                <p className='w-full laptop:text-sm desktop:text-lg text-balance font-normal text-left'>{texts?.info_2}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
                   <button onClick={() => window.open("https://myroommate.vercel.app/", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://myroommate.vercel.app/</button>
@@ -254,16 +256,16 @@ export default function Work() {
 
             <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition  duration-500 justify-center hover:py-10 border-transparent hover:border-b-2 hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 transition-all transform duration-500 items-center`}>
 
-              <div className='font-bold w-[30%]'>
+              <div className='font-bold desktop:text-xl w-[30%]'>
                 YouTube Music CLONE <br /><span className={`${classes?.textColorSubTitle}`}>({texts?.category_1} & {texts?.category_2})</span>
-                <p className='w-full text-sm text-balance font-normal text-left'>{texts?.info_3}</p>
+                <p className='w-full laptop:text-sm desktop:text-lg text-balance font-normal text-left'>{texts?.info_3}</p>
                 <div className={`bg-white w-[80%] px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
-                  <button onClick={() => window.open("https://youtubemusic-clone.vercel.app/", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://login-register-template.vercel.app/login</button>
+                  <button onClick={() => window.open("https://youtubemusic-clone.vercel.app/", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://youtubemusic-clone.vercel.app/</button>
                 </div>
                 <div className={`bg-white w-[80%] px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center'>Repo <FaGithub className='ml-2' /></h2>
-                  <button onClick={() => window.open("https://github.com/pablodKampmann/youTubeMusic-Clone", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://github.com/pablodKampmann/login-register-template</button>
+                  <button onClick={() => window.open("https://github.com/pablodKampmann/youTubeMusic-Clone", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://github.com/pablodKampmann/-youTubeMusic-Clone</button>
                 </div>
               </div>
 
@@ -287,9 +289,9 @@ export default function Work() {
                 <Image placeholder='blur' blurDataURL={imageBlur} onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg mr-auto flex shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[340px] group-hover:w-[70%] trasform transition-all duration-700 w-[60%] h-[290px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
               )}
 
-              <div className='font-bold w-[25%]'>
+              <div className='font-bold desktop:text-xl w-[25%]'>
                 Login & Register Template <br /><span className={`${classes?.textColorSubTitle}`}>({texts?.category_1} & {texts?.category_2})</span>
-                <p className='w-full text-sm text-balance font-normal text-left'>{texts?.info_3}</p>
+                <p className='w-full laptop:text-sm desktop:text-lg text-balance font-normal text-left'>{texts?.info_4}</p>
                 <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
                   <button onClick={() => window.open("https://login-register-template.vercel.app/login", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://login-register-template.vercel.app/login</button>
