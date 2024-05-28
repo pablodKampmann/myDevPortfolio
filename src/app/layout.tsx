@@ -125,8 +125,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {!isLoading ? (
-          <div className={`h-screen overflow-y-hidden relative ${classes?.bgMainColor} transition duration-200 ${classes?.bgMainOpacity}`}>
+        <div className="absolute w-full">
+          {isLoading && (
+            <Loading />
+          )}
+        </div>
+        <div className={`${!isLoading ? 'opacity-100' : 'opacity-0 '} overflow-hidden`}>
+          <div className={`h-screen overflow-hidden relative ${classes?.bgMainColor} transition duration-200 ${classes?.bgMainOpacity}`}>
             <div className={`absolute left-9 bottom-[14%] rounded-full ${classes?.bgLinesColor} h-40 w-1 `}></div>
             <div className={`absolute left-9 bottom-[41%] rounded-full ${classes?.bgLinesColor} h-4 w-1 `}></div>
             <div className={`absolute left-9 bottom-[48%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
@@ -138,9 +143,7 @@ export default function RootLayout({
             <NavBar tone={tone} language={language} colorMain={colorMain} handleColorChange={handleColorMainChange} />
             {children}
           </div>
-        ) : (
-          <Loading />
-        )}
+        </div>
       </body>
     </html>
   );

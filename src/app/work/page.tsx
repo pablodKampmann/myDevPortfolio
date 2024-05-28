@@ -18,6 +18,8 @@ export default function Work() {
       }
       const storedTone = localStorage.getItem('tone');
       if (storedTone) {
+        console.log(storedTone);
+        
         setTone(storedTone);
       }
       const storedColorMain = localStorage.getItem('colorMain');
@@ -250,11 +252,10 @@ export default function Work() {
             </div>
 
 
-
-            <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition  duration-500 justify-center hover:py-10 border-transparent  hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 transition-all transform duration-500 items-center`}>
+            <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition  duration-500 justify-center hover:py-10 border-transparent hover:border-b-2 hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject}  p-8 transition-all transform duration-500 items-center`}>
 
               <div className='font-bold w-[30%]'>
-                Login & Register Template <br /><span className={`${classes?.textColorSubTitle}`}>({texts?.category_1} & {texts?.category_2})</span>
+                YouTube Music CLONE <br /><span className={`${classes?.textColorSubTitle}`}>({texts?.category_1} & {texts?.category_2})</span>
                 <p className='w-full text-sm text-balance font-normal text-left'>{texts?.info_3}</p>
                 <div className={`bg-white w-[80%] px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
                   <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
@@ -271,8 +272,34 @@ export default function Work() {
                   <ClipLoader color='#10b981' size={50} />
                 </div>
               ) : (
-                <Image placeholder='blur' blurDataURL={imageBlur} onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg ml-auto flex shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[340px] group-hover:w-[70%] trasform transition-all duration-700 w-[60%] h-[290px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
+                <Image placeholder='blur' blurDataURL={imageBlur} onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg ml-auto flex shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[340px] group-hover:w-[70%] trasform transition-all duration-700 w-[60%] h-[290px]`} quality={100} width={1919} height={914} priority={true} src='/youtubeMusic-image.png' alt="youtubeMusic-image" />
               )}
+            </div>
+
+
+
+            <div className={`flex group ${classes?.bgHoverOpacityProject} ${classes?.bgHoverColorProject} transition  duration-100 justify-center hover:py-10 border-transparent hover:border-t-2 ${classes?.borderHoverColorProject} ${classes?.borderHoverOpacityProject} p-8 transition-all transform duration-500  items-center`}>
+              {!imageIsLoad ? (
+                <div className={`bg-white flex justify-center items-center ${classes?.bgOpacityLoaderImage} w-[60%] h-[280px] mr-auto rounded-lg shadow-2xl`}>
+                  <ClipLoader color='#10b981' size={50} />
+                </div>
+              ) : (
+                <Image placeholder='blur' blurDataURL={imageBlur} onLoad={() => setImageIsLoad(true)} className={`${classes?.opacityImages} rounded-lg mr-auto flex shadow-2xl opacity-50 group-hover:opacity-100 object-cover group-hover:h-[340px] group-hover:w-[70%] trasform transition-all duration-700 w-[60%] h-[290px]`} quality={100} width={1919} height={918} priority={true} src='/loginAndRegister-image.png' alt="loginAndRegister-image" />
+              )}
+
+              <div className='font-bold w-[25%]'>
+                Login & Register Template <br /><span className={`${classes?.textColorSubTitle}`}>({texts?.category_1} & {texts?.category_2})</span>
+                <p className='w-full text-sm text-balance font-normal text-left'>{texts?.info_3}</p>
+                <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
+                  <h2 className='flex justify-start items-center '>Deploy <GrDeploy className='ml-2' /></h2>
+                  <button onClick={() => window.open("https://login-register-template.vercel.app/login", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://login-register-template.vercel.app/login</button>
+                </div>
+                <div className={`bg-white w-fit px-3 py-2 mt-4 rounded-lg shadow-2xl ${classes?.bgOpacityLinks}`}>
+                  <h2 className='flex justify-start items-center'>Repo <FaGithub className='ml-2' /></h2>
+                  <button onClick={() => window.open("https://github.com/pablodKampmann/login-register-template", "_blank")} className={`${classes?.textColorLinks} ${classes?.textColorHoverLinks} text-xs cursor-pointer tracking-tighter	break-normal text-left transition duration-300 `}>https://github.com/pablodKampmann/login-register-template</button>
+                </div>
+              </div>
+
             </div>
 
 

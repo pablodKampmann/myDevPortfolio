@@ -15,6 +15,9 @@ const config: Config = {
       },
       animation: {
         'move-from-left': 'move-from-left 0.2s ease-out',
+        'move-whatsapp': 'move-whatsapp 0.1s ease-out',
+        'move-email': 'move-email 0.1s ease-out',
+        'move-gitHub': 'move-gitHub 0.1s ease-out',
       },
       keyframes: {
         'move-from-left': {
@@ -23,6 +26,27 @@ const config: Config = {
           '50%': { opacity: '0.6', transform: 'translateX(-50%)' },
           '75%': { opacity: '0.8', transform: 'translateX(-25%)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        'move-whatsapp': {
+          '0%': { opacity: '0.2', transform: 'translateX(100%)' },
+          '25%': { opacity: '0.2', transform: 'translateX(75%)' },
+          '50%': { opacity: '0.4', transform: 'translateX(50%)' },
+          '75%': { opacity: '0.8', transform: 'translateX(25%)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        'move-email': {
+          '0%': { opacity: '0.2', transform: 'translateX(100%) translateY(-100%)' },
+          '25%': { opacity: '0.2', transform: 'translateX(75%) translateY(-75%)' },
+          '50%': { opacity: '0.4', transform: 'translateX(50%) translateY(-50%)' },
+          '75%': { opacity: '0.8', transform: 'translateX(25%) translateY(-25%)' },
+          '100%': { opacity: '1', transform: 'translateX(0) translateY(-0%)' },
+        },
+        'move-gitHub': {
+          '0%': { opacity: '0.2', transform: 'translateX(100%) translateY(-100%)' },
+          '25%': { opacity: '0.2', transform: 'translateX(75%) translateY(-75%)' },
+          '50%': { opacity: '0.4', transform: 'translateX(50%) translateY(-50%)' },
+          '75%': { opacity: '0.8', transform: 'translateX(25%) translateY(-25%)' },
+          '100%': { opacity: '1', transform: 'translateX(0) translateY(-0%)' },
         },
       }
     },
