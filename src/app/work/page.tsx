@@ -203,7 +203,7 @@ export default function Work() {
       <div className={`${classes?.bgColorTitle} ${classes?.bgOpacityTitle} font-normal flex  ${classes?.borderColorProjectsCont} justify-center px-2 py-1.5 rounded shadow-2xl mb-8 items-center text-left text-4xl   `}>
         {texts?.title} <MdDesignServices className='ml-2' />
       </div>
-      <div className={`flex h-[75%] border-4 relative ${classes?.borderColorProjectsCont} ${classes?.bgColorProjectsCont} ${classes?.bgOpacityProjectsCont} rounded-lg w-[70%]  shadow-2xl text-lg justify-center items-center `}>
+      <div className={`flex h-[75%] relative  ${classes?.bgColorProjectsCont} ${classes?.bgOpacityProjectsCont} rounded-lg w-[70%]  shadow-2xl text-lg justify-center items-center `}>
         <div className='overflow-y-auto bg-transparent  overflow-x-hidden flex flex-col h-full '>
 
           <div className=''>
