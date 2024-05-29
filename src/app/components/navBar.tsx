@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import React, { useState, useEffect } from 'react';
 import { MdOutlineCancel } from "react-icons/md";
+import { LuGithub } from "react-icons/lu";
 
 interface NavBarProps {
     tone: string;
@@ -23,14 +24,14 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
             work: "My work",
             experience: "Experience",
             technologies: "Technologies",
-            contact: "CONTACT ME",
+            repo: "Repositorio",
         },
         spa: {
             about: "Acerca de mi",
             work: "Mi trabajo",
             experience: "Experiencia",
             technologies: "Tecnologías",
-            contact: "CONTACTAME",
+            repo: "Repository",
         }
     };
 
@@ -207,7 +208,7 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
                 <Link href={'/tech'} prefetch={true}>
                     <div className={`${pathname === '/tech' ? `${classes?.bgPageSelected}  ${classes?.bgOpacityButtonPressed}` : `${classes?.bgOpacityHoverButtons} ${classes?.bgColorButtons} bg-opacity-[2%]`} cursor-pointer focus:outline-none py-2 px-3 rounded-lg transition duration-150  w-full whitespace-nowrap`}><span className={`${classes?.textColorNumber}`}>04. </span>{texts?.technologies}</div>
                 </Link>
-                <div className={`bg-transparent font-semibold whitespace-nowrap white tracking-widest border-2 text-lg ${classes?.textColorNumber} hover:border-white ${classes?.hoverButtton} hover:bg-opacity-70 hover:text-white transition duration-150 cursor-pointer flex justify-center items-center ${classes?.borderColor} rounded-md py-2 px-4 `}>{texts?.contact}<IoIosSend className="ml-2" size={26} /></div>
+                <div className={`bg-transparent uppercase font-semibold whitespace-nowrap white tracking-widest border-2 text-lg ${classes?.textColorNumber} hover:border-white ${classes?.hoverButtton} hover:bg-opacity-70 hover:text-white transition duration-150 cursor-pointer flex justify-center items-center ${classes?.borderColor} rounded-md py-2 px-4 `}>{texts?.repo}<LuGithub className="ml-2" size={26} /></div>
             </div>
 
         </div >
