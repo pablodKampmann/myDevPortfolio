@@ -24,14 +24,14 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
             work: "My work",
             experience: "Experience",
             technologies: "Technologies",
-            repo: "Repositorio",
+            repo: "This repository",
         },
         spa: {
             about: "Acerca de mi",
             work: "Mi trabajo",
             experience: "Experiencia",
             technologies: "Tecnologías",
-            repo: "Repository",
+            repo: "Este repositorio",
         }
     };
 
