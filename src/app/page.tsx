@@ -48,17 +48,19 @@ export default function AboutMe() {
 
   const languageTexts = {
     eng: {
-      title_1: "Full Stack Developer (MAIN frontend)",
+      title_1: "Full Stack Developer ",
+      title_2: "MAIN frontend",
       text_1: "I am a FULL-STACK developer of both web and mobile applications. I like working in the FRONT-END area because I am able to understand user requirements and, in turn, achieve a good user experience.",
       text_2_part_1: "Likewise, I can work in any area. As seen in the section",
       text_link_1: "projects",
       text_2_part_2: ", I have two fully functional FULL-STACK developed applications.",
-      text_3_part_1: "I am interested in continuing to improve my knowledge with both",
+      text_3_part_1: "I am interested in continuing to improve my knowledge with the",
       text_link_2: "technologies",
-      text_3_part_2: "which I usually use as good practices that every developer should have.",
+      text_3_part_2: "that I usually use as good practices that every developer should have.",
     },
     spa: {
-      title_1: "Desarrollador Full Stack (frontend MAIN)",
+      title_1: "Desarrollador Full Stack ",
+      title_2: "MAIN frontend",
       text_1: "Soy un desarrollador FULL-STACK de aplicaciones tanto web como móviles. Me gusta trabajar en el área de FRONT-END porque soy capaz de entender los requerimientos del usuario y, a su vez, lograr una buena experiencia de usuario.",
       text_2_part_1: "Igualmente, puedo trabajar en cualquier área. Como se ve en la sección de",
       text_link_1: "proyectos",
@@ -93,30 +95,40 @@ export default function AboutMe() {
       let textMainColor = '';
       let textLinkColor = '';
       let hoverTextLinkColor = '';
+      let borderColorImage = '';
+      let decorationColor = '';
 
       switch (colorMain) {
         case 'emerald':
           textMainColor = tone === 'dark' ? "text-emerald-600" : "text-emerald-600";
           textLinkColor = tone === 'dark' ? "text-emerald-500" : "text-emerald-500";
           hoverTextLinkColor = tone === 'dark' ? "hover:text-emerald-400" : "hover:text-emerald-400";
+          borderColorImage = tone === 'dark' ? "border-emerald-600" : "border-emerald-600";
+          decorationColor = tone === 'dark' ? "decoration-emerald-600" : "decoration-emerald-600";
 
           break;
         case 'rose':
           textMainColor = tone === 'dark' ? "text-rose-600" : "text-rose-600";
           textLinkColor = tone === 'dark' ? "text-rose-500" : "text-rose-500";
           hoverTextLinkColor = tone === 'dark' ? "hover:text-rose-400" : "hover:text-rose-400";
+          borderColorImage = tone === 'dark' ? "border-rose-600" : "border-rose-600";
+          decorationColor = tone === 'dark' ? "decoration-rose-600" : "decoration-rose-600";
 
           break;
         case 'blue':
           textMainColor = tone === 'dark' ? "text-blue-600" : "text-blue-600";
           textLinkColor = tone === 'dark' ? "text-blue-500" : "text-blue-500";
           hoverTextLinkColor = tone === 'dark' ? "hover:text-blue-400" : "hover:text-blue-400";
+          borderColorImage = tone === 'dark' ? "border-blue-600" : "border-blue-600";
+          decorationColor = tone === 'dark' ? "decoration-blue-600" : "decoration-blue-600";
 
           break;
         case 'yellow':
           textMainColor = tone === 'dark' ? "text-yellow-600" : "text-yellow-600";
           textLinkColor = tone === 'dark' ? "text-yellow-500" : "text-yellow-500";
           hoverTextLinkColor = tone === 'dark' ? "hover:text-yellow-400" : "hover:text-yellow-400";
+          borderColorImage = tone === 'dark' ? "border-yellow-600" : "border-yellow-600";
+          decorationColor = tone === 'dark' ? "decoration-yellow-600" : "decoration-yellow-600";
 
           break;
         default:
@@ -135,6 +147,8 @@ export default function AboutMe() {
           hoverBgOpacity: "hover:bg-opacity-10",
           textLinkColor: textLinkColor,
           hoverTextLinkColor: hoverTextLinkColor,
+          borderColorImage: borderColorImage,
+          decorationColor: decorationColor,
         },
         light: {
           textMainColor: textMainColor,
@@ -147,6 +161,8 @@ export default function AboutMe() {
           hoverBgOpacity: "hover:bg-opacity-10",
           textLinkColor: textLinkColor,
           hoverTextLinkColor: hoverTextLinkColor,
+          borderColorImage: borderColorImage,
+          decorationColor: decorationColor,
         }
       });
     };
@@ -193,7 +209,7 @@ export default function AboutMe() {
     <div className={`${classes?.textColorMain} flex flex-col justify-center items-center h-full pb-[6%]`}>
       <div className={`w-[50%] h-[65%] flex flex-col justify-start  p-8 relative bg-white ${classes?.bgOpacityMain} rounded-2xl shadow-2xl`}>
         <div className=''>
-          <h2 className='uppercase flex items-center  laptop:text-lg desktop:text-xl text-opacity-80'>{texts?.title_1} <FaDev className={`ml-4 ${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo} p-1 rounded ${classes?.textMainColor}`} size={28} /></h2>
+          <h2 className='uppercase flex items-center  laptop:text-lg desktop:text-xl text-opacity-80'>{texts?.title_1}(  <span className={` underline ${classes?.decorationColor}`}> {texts?.title_2}</span>) <FaDev className={`ml-4 ${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo} p-1 rounded ${classes?.textMainColor}`} size={28} /></h2>
           <h1 className={`${classes?.textMainColor} font-semibold laptop:text-3xl desktop:text-4xl `}>Pablo Kampmann</h1>
         </div>
         <div className='w-[70%] space-y-4  laptop:text-sm desktop:text-lg  mt-4'>
@@ -202,7 +218,7 @@ export default function AboutMe() {
           <p className={`${classes?.bgTextInfo} ${classes?.bgOpacityTextInfo} py-1 px-2  rounded-md`}>{texts?.text_3_part_1} <a onClick={() => router.push('/tech')} className={`${classes?.textLinkColor} ${classes?.hoverTextLinkColor} hover:cursor-pointer transition duration-150`}>{texts?.text_link_2} </a>{texts?.text_3_part_2}</p>
         </div>
         <div className='absolute -top-10 -right-10'>
-          <Image placeholder='blur' blurDataURL={imageBlur} className={`rounded-full border-4  border-emerald-600  shadow-2xl object-cover w-[200px] h-[200px]`} quality={100} width={959} height={1280} priority={true} src='/me-image.jpg' alt="me-image" />
+          <Image placeholder='blur' blurDataURL={imageBlur} className={`rounded-full border-4  ${classes?.borderColorImage}  shadow-2xl object-cover w-[200px] h-[200px]`} quality={100} width={959} height={1280} priority={true} src='/me-image.jpg' alt="me-image" />
           {openSocial && (
             <div className=''>
               <button onClick={whatsAppContact} className={`absolute animate-move-whatsapp cursor-pointer transition duration-150 ${classes?.hoverBgColor} ${classes?.hoverBgOpacity} p-2 rounded-full -left-12 top-[45%]`}>

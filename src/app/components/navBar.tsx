@@ -101,6 +101,7 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
                     bgColorShowOptions: "bg-blue-950",
                     bgOpacityShowOptions: "bg-opacity-20",
                     borderColorColourSelected: "border-white",
+                    borderOpacityColourSelected: "border-opacity-100",
                     textOpacityIconShowOptions: "text-opacity-100",
                     hoverBgColorIcon: "hover:bg-white",
                     hoverBgOpacityIcon: "hover:bg-opacity-10",
@@ -119,7 +120,8 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
                     hoverButtton: hoverButtton,
                     bgColorShowOptions: "bg-white",
                     bgOpacityShowOptions: "bg-opacity-100",
-                    borderColorColourSelected: "border-gray-400",
+                    borderColorColourSelected: "border-black",
+                    borderOpacityColourSelected: "border-opacity-60",
                     textOpacityIconShowOptions: "text-opacity-70",
                     hoverBgColorIcon: "hover:bg-black",
                     hoverBgOpacityIcon: "hover:bg-opacity-10",
@@ -175,16 +177,16 @@ export default function NavBar({ tone, language, colorMain, handleColorChange }:
                 )}
 
                 {showOptions && (
-                    <div onClick={() => { setShowOptions(false); setShowCancelButton(false) }} className={` animate-move-from-left transition-opacity border-2 ${classes?.borderColor} duration-500 absolute  top-[12%] left-[1%] w-[130px] h-[160px] flex flex-col justify-center items-center ${classes?.bgColorShowOptions} ${classes?.bgOpacityShowOptions} shadow-2xl rounded-xl`}>
+                    <div onClick={() => { setShowOptions(false); setShowCancelButton(false) }} className={` animate-move-from-left transition-opacity border-2 ${classes?.borderColor} duration-500 absolute  top-[12%] left-[1%] w-[130px] h-[175px] flex flex-col justify-center items-center ${classes?.bgColorShowOptions} ${classes?.bgOpacityShowOptions} shadow-2xl rounded-xl`}>
                         <h1 className={`text-xs font-bold -tracking-tighter ${classes?.textMain} mb-2.5 w-[80%] text-balance text-center`}>Seleccione el <span className={`${classes?.textIcon} font-bold text-sm`}>COLOR</span> primario de la interfaz</h1>
                         <div className="flex flex-col justify-center space-y-2 items-center ">
                             <div className="flex justify-center items-center space-x-4">
-                                <button onClick={() => { handleColorChange('emerald'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'emerald' ? `w-9 h-9 border-4 ${classes?.borderColorColourSelected}` : 'w-8 h-8 hover:scale-125 transition duration-150'} bg-emerald-600 transition duration-200 shadow-2xl rounded-full`}></button>
-                                <button onClick={() => { handleColorChange('rose'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'rose' ? `w-9 h-9  border-4 ${classes?.borderColorColourSelected}` : 'w-8 h-8 hover:scale-125 transition duration-150'} bg-rose-800 transition duration-200 shadow-2xl rounded-full`}></button>
+                                <button onClick={() => { handleColorChange('emerald'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'emerald' ? `w-9 h-9 border-2 ${classes?.borderOpacityColourSelected} ${classes?.borderColorColourSelected}` : 'w-8 h-8 hover:scale-125 transition duration-150'} bg-emerald-600 transition duration-200 shadow-2xl rounded-full`}></button>
+                                <button onClick={() => { handleColorChange('rose'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'rose' ? `w-9 h-9  border-2 ${classes?.borderOpacityColourSelected} ${classes?.borderColorColourSelected}` : 'w-8 h-8 hover:scale-125 transition duration-150'} bg-rose-800 transition duration-200 shadow-2xl rounded-full`}></button>
                             </div>
                             <div className="flex justify-center items-center space-x-4">
-                                <button onClick={() => { handleColorChange('blue'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'blue' ? `w-9 h-9  border-4 ${classes?.borderColorColourSelected}` : 'w-8 h-8 hover:scale-125 transition duration-150'} bg-blue-800 transition duration-200 shadow-2xl rounded-full`}></button>
-                                <button onClick={() => { handleColorChange('yellow'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'yellow' ? `w-9 h-9  border-4 ${classes?.borderColorColourSelected}` : 'w-8 h-8 hover:scale-125 transition duration-150'} bg-yellow-500 transition duration-200 shadow-2xl rounded-full`}></button>
+                                <button onClick={() => { handleColorChange('blue'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'blue' ? `w-9 h-9  border-2 ${classes?.borderOpacityColourSelected} ${classes?.borderColorColourSelected}` : 'w-8 h-8 hover:scale-125 transition duration-150'} bg-blue-800 transition duration-200 shadow-2xl rounded-full`}></button>
+                                <button onClick={() => { handleColorChange('yellow'); setShowOptions(false); setShowCancelButton(false); }} className={`${colorMain === 'yellow' ? `w-9 h-9  border-2 ${classes?.borderOpacityColourSelected} ${classes?.borderColorColourSelected}` : 'w-8 h-8 hover:scale-125 transition duration-150'} bg-yellow-500 transition duration-200 shadow-2xl rounded-full`}></button>
                             </div>
                         </div>
                     </div>

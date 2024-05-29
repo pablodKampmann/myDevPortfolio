@@ -1,14 +1,15 @@
 'use client'
 
-import { Inconsolata } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navBar";
 import LanguageOptions from "./components/languageOptions";
 import React, { useState, useEffect } from 'react';
 import ToneMode from "./components/toneMode";
 import Loading from "./components/loading";
+import { useRouter } from "next/navigation";
 
-const inter = Inconsolata({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: ["400"] });
 
 export default function RootLayout({
   children,
@@ -121,6 +122,7 @@ export default function RootLayout({
     }
   }, [classesTones]);
 
+  const router = useRouter();
 
   return (
     <html lang="en">
@@ -132,11 +134,11 @@ export default function RootLayout({
         </div>
         <div className={`${!isLoading ? 'opacity-100' : 'opacity-0 '} overflow-hidden`}>
           <div className={`h-screen overflow-hidden relative ${classes?.bgMainColor} transition duration-200 ${classes?.bgMainOpacity}`}>
-            <div className={`absolute left-9 bottom-[14%] rounded-full ${classes?.bgLinesColor} h-40 w-1 `}></div>
-            <div className={`absolute left-9 bottom-[41%] rounded-full ${classes?.bgLinesColor} h-4 w-1 `}></div>
+            <div className={`absolute left-9 bottom-[14%] rounded-full ${classes?.bgLinesColor} h-36 w-1 `}></div>
+            <div className={`absolute left-9 bottom-[40%] rounded-full ${classes?.bgLinesColor} h-4 w-1 `}></div>
             <div className={`absolute left-9 bottom-[48%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
-            <div className={`absolute right-9 bottom-[50%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
-            <div className={`absolute -right-5 bottom-[68%] font-semibold text-${colorMain}-500 transform rotate-90`}>@pablokampmann</div>
+            <div className={`absolute right-9 bottom-[42%] rounded-full ${classes?.bgLinesColor} h-16 w-1 `}></div>
+            <button onClick={() => router.push('/')} className={`absolute -right-8 hover:underline transition duration-150 cursor-pointer bottom-[64%] font-semibold text-${colorMain}-500 transform rotate-90`}>@pablokampmann</button>
             <div className={`absolute right-9 bottom-[80%] rounded-full ${classes?.bgLinesColor} h-8 w-1 `}></div>
             <ToneMode tone={tone} colorMain={colorMain} handleToneChange={handleToneChange} />
             <LanguageOptions tone={tone} language={language} colorMain={colorMain} handleLanguageChange={handleLanguageChange} />
